@@ -11,12 +11,12 @@ const links = [
     {
         id: 2,
         name: 'About',
-        path: '/about'
+        path: '#about'
     },
     {
         id: 3,
         name: 'Contact',
-        path: '/contact'
+        path: '#contact'
     },
     {
         id: 3,
@@ -26,14 +26,14 @@ const links = [
 ]
 function Navbar() {
   return (
-    <div className='flex justify-between px-16  items-center py-2 border-b-2 shadow-lg shadow-[#619ff527]'>
+    <div className='flex justify-between px-16  items-center py-2 border-b-2 shadow-lg shadow-[#619ff527] fixed w-full bg-white'>
         <span>
             <Image src={'/static/images/logo1.png'} height={40} width={40} alt='brand logo' />
         </span>
         <div className='space-x-36'>
             { links.map((link, key) => {
                 return (
-                    <Link href={link.path}>{link.name}</Link>
+                    <Link key={key} href={link.path}>{link.name}</Link>
                 )
             })}
         </div>

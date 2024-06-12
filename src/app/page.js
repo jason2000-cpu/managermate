@@ -2,14 +2,22 @@ import Counter from "@/components/Counter";
 import Image from "next/image";
 import StoreProvider from "./StoreProvider";
 import Navbar from "@/components/Navbar";
+import BannerSection from "@/components/BannerSection";
+import AboutSection from "@/components/AboutSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <StoreProvider>
       <div>
         <Navbar />
-        <h1>Using Redux!</h1>
-        <Counter />
+        <div className="px-10 pt-16">
+          <BannerSection />
+          <AboutSection />
+          <ContactSection />
+        </div>
+        <Footer />
       </div>
     </StoreProvider>
   );
