@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import ContactForm from './ContactForm'
+import ContactForm from './forms/ContactForm'
 
 import { ImFacebook } from "react-icons/im";
 import { SlSocialTwitter } from "react-icons/sl";

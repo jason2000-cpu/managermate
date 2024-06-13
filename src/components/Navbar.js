@@ -21,7 +21,7 @@ const links = [
     {
         id: 3,
         name: 'Signup',
-        path: '/signup'
+        path: '/auth/signup'
     },
 ]
 function Navbar() {

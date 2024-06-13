@@ -13,8 +13,12 @@ export const counterSlice = createSlice({
     decrement: state => {
       state.value -= 1;
     },
+    incrementByTwo: (state, val) =>{
+      console.log("Value to Add::",val.payload)
+      state.value = val.payload
+    }
   },
 });
 
-export const { increment, decrement } = counterSlice.actions;
+export const { increment, decrement, incrementByTwo } = counterSlice.actions;
 export default counterSlice.reducer;
