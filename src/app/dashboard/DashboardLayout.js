@@ -1,24 +1,14 @@
 'use client'
 
-import React, { useState } from "react"
-import FilterSettings from "@/components/FilterSettings";
-import Todos from "@/components/Todos";
-import Inprogress from "@/components/Inprogress";
-import Completed from "@/components/Completed";
-
+// const { default: SideNav } = require("@/components/SideNav")
 import { useSelector } from "react-redux"
 import Counter from "@/components/Counter"
 import Navbar from "@/components/Navbar";
 import SideNav from "@/components/SideNav";
 import TopBar from "@/components/TopBar";
 
-
-function Dashboard(){
-    // const user = useSelector((state) => state.user);
-    const user = JSON.parse(localStorage.getItem("activeUser"))
-    console.log("LOGGED IN USER:::: ", user)
-
-    return (
+function DashboardLayout({children}){
+    <div>
         <div className="flex">
             <SideNav />
             {/* <h1>Active User: {user.userType} {user.FName} {user.SName}</h1>
@@ -33,7 +23,7 @@ function Dashboard(){
                 </div>
             </div>
         </div>
-    )
+    </div>
 }
 
-export default Dashboard;
+export default DashboardLayout;

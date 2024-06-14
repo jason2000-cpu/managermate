@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { MdOutlineTimer } from "react-icons/md";
 import { CiUser } from "react-icons/ci";
+import { RiUser2Fill } from "react-icons/ri";
 import SelectInput from './SelectInput';
 
 
@@ -19,13 +20,13 @@ function Card({data}){
     return (
         <div className='border rounded-lg px-4 py-2 shadow-lg flex flex-col space-y-6 mx-2 mb-4'>
             <div className='flex justify-between items-center font-bold'>
-                <h1 className='text-xl font bold'>{data.topic}</h1>
-                <span className='h-10 w-10 bg-gray-400 border'></span>
+                <h1 className='text-xl font bold'>{data.title}</h1>
+                <span className={`h-10 w-10 border bg-[${data.color}]`}></span>
             </div>
             <div className='flex justify-between'>
                 <div className='flex space-x-2'>
                     <FaRegCalendarAlt size={20}/>
-                    <span>{data.date_start}</span>
+                    <span>{data.start}</span>
                 </div>
                 <div className='flex'>
                     <MdOutlineTimer size={20} />
@@ -35,7 +36,7 @@ function Card({data}){
             <div className='flex'>
                 <div className='flex items-center space-x-2'>
                     <div className='border bg-[#083778] rounded-full p-1'>
-                        <CiUser size={20}  color={'white'} />
+                        <RiUser2Fill size={20}  color={'white'} />
                     </div>
                     <span>Assinged By {data.assigned_by}</span>
                 </div>

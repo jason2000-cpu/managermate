@@ -29,45 +29,64 @@ export const users = [
 ]
 
 
+// #619ff5
+// #083778 
+// #094190  
+// #64a0f5 
+// color: '#f56954',
+// color: '#f39c12',
+// color: '#00a65a'
+
+
 export const todos = [
     {
         id: 1,
-        topic: "User Interface Design",
-        date_start: "2024-06-10",
-        date_due: "2024-06-14",
+        title: "User Interface Design",
+        start: "2024-06-07",
+        date_due: "2024-06-10",
         assigned_by: "Admin Jackson",
-        status: "complete"
+        description:"",
+        color: "'#f56954'",
+        status: "complete",
     },
     {
         id: 2,
-        topic: "Frontend Development",
-        date_start: "2024-06-10",
-        date_due: "2024-06-14",
+        title: "Frontend Development",
+        start: "2024-06-10",
+        end: "2024-06-13",
         assigned_by: "Admin Jackson",
+        description:"",
+        color: "#f39c12",
         status: "complete"
     },
     {
         id: 3,
-        topic: "API Development",
-        date_start: "2024-06-10",
-        date_due: "2024-06-14",
+        title: "API Development",
+        start: "2024-06-13",
+        end: "2024-06-15",
         assigned_by: "Admin Jackson",
+        description:"",
+        color: "#00a65a",
         status: "inprogress"
     },
     {
         id: 4,
-        topic: "API Intergration",
-        date_start: "2024-06-10",
-        date_due: "2024-06-14",
+        title: "API Intergration",
+        start: "2024-06-15",
+        end: "2024-06-18",
         assigned_by: "Admin Jackson",
+        description:"",
+        color: "#64a0f5",
         status: "incomplete"
     },
     {
         id: 5,
-        topic: "Web App Deployment",
-        date_start:"2024-06-16",
-        date_due: "2024-06-17",
+        title: "Web App Deployment",
+        start:"2024-06-18",
+        end: "2024-06-21",
         assigned_by: "Admin Jackson",
+        description:"",
+        color: "#083778",
         status: "incomplete"
     }
 ]

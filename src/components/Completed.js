@@ -10,8 +10,8 @@ function Completed(){
         <div className="w-[24rem] h-[80vh] rounded border ">
             <h1 className="text-xl text-white rounded font-bold border flex justify-center items-center bg-[#083778] h-9">Completed</h1>
             <div className="mt-4">
-                { completeTodos.map((todo) =>{
-                    return <Card data={todo} />
+                { completeTodos.map((todo, key) =>{
+                    return <Card key={key} data={todo} />
                 })}
             </div>
         </div>

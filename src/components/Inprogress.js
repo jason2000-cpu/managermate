@@ -10,8 +10,8 @@ function Inprogress(){
         <div className="w-[24rem] h-[80vh] rounded border ">
             <h1 className="text-xl text-white rounded font-bold border flex justify-center bg-[#083778]">In progress</h1>
             <div className="mt-4">
-                { inprogressTodos.map((todo) =>{
-                    return <Card data={todo} />
+                { inprogressTodos.map((todo, key) =>{
+                    return <Card key={key} data={todo} />
                 })}
             </div>
         </div>

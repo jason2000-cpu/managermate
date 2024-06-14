@@ -14,7 +14,7 @@ function FloatingLabelInput({ type='text', name, label, handleChange, value}){
         setIsFocused(value === " ")
     }
     return (
-        <div className='relative my-4'>
+        <div className='relative my-4 w-full'>
             <input
                 className='w-full px-3 py-2 border border-gray-300 rounded-lg outline-none focus:border-blue-600 transition-all duration-200'
                 type={type}

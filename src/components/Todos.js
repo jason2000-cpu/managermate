@@ -10,8 +10,8 @@ function Todos(){
         <div className="w-[24rem] h-[80vh] rounded border ">
             <h1 className="text-xl text-white rounded font-bold border flex justify-center items-center bg-[#083778] h-9">Todos</h1>
             <div className="mt-4">
-                { inpcompleteTodos.map((todo) =>{
-                    return <Card data={todo} />
+                { inpcompleteTodos.map((todo, key) =>{
+                    return <Card  key={key} data={todo} />
                 })}
             </div>
         </div>
