@@ -53,10 +53,10 @@ export default function Login(){
 				{/* <Footer /> */}
 			</div>
 
-			{/* <ToastContainer
+			<ToastContainer
 				position="top-right"
 				theme="dark"
-			/> */}
+			/>
 		</>
 	)
 }

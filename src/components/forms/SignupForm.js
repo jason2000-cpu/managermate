@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react'
 import { useRouter } from "next/navigation";
-// import PhoneInput from "react-phone-input-2";
-// import 'react-phone-input-2/lib/material.css'
+import PhoneInput from "react-phone-input-2";
+import 'react-phone-input-2/lib/material.css'
 import FloatingLabelInput from "../ui/FloatingLabelInput"
 import useUserHook from "@/hooks/useUserHook";
 import CustomBtn from '../ui/Button';
@@ -74,7 +74,7 @@ function SignupForm(){
                     value={form.email}
                     handleChange={handleChange}
                     />
-                {/* <div className="my-6">
+                <div className="my-6">
                     <PhoneInput
                         className='h-[50px] mt-[-10px]'
                         country={'ke'}
@@ -91,7 +91,7 @@ function SignupForm(){
                         inputProps={{required: true}}
                         containerStyle={{ width: '100%' }}
                     />
-                </div> */}
+                </div>
             </div>
             <div className="flex  space-x-2">
                 <FloatingLabelInput
