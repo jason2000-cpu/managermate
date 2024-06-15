@@ -5,29 +5,22 @@ import { useSelector } from 'react-redux';
 import Counter from '@/components/Counter';
 import SideNavigation from './components/SideNavigation';
 import TopBar from '@/components/TopBar';
-import TaskModal from './components/TaskModal';
-import DepartmentModal from './components/DepartmentModal';
+import TaskModal from './components/modals/TaskModal';
+import DepartmentModal from './components/modals/DepartmentModal';
+import TasksView from './components/TasksView';
 
 function ManagersPage(){
     const user = useSelector((state) => state.user);
     // const user = JSON.parse(localStorage.getItem("activeUser"))
     console.log("LOGGED IN USER:::: ", user)
     const [isTaskModalOpen, setTaskModalOpen ]  = useState(false);
-    const [isDepartmentModalOpen, setDepartmentModalOpen] = useState(false);
   
-    const handleOpenModal = (name) => {
-      switch (name){
-        case 'task':
-            setTaskModalOpen(true)
-            break;
-        default:
-            setDepartmentModalOpen(true)
-      }
+    const handleOpenModal = () => {
+        setTaskModalOpen(true)
     };
   
     const handleCloseModal = () => {
       setTaskModalOpen(false);
-      setDepartmentModalOpen(false);
     };
   
     return (
@@ -42,12 +35,15 @@ function ManagersPage(){
                     <button onClick={()=>handleOpenModal('task')} className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
                         Create New Task
                     </button>
-                    <button onClick={()=>handleOpenModal('department')} className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
+                    {/* <button onClick={()=>handleOpenModal('department')} className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
                         Create New Department
-                    </button>
+                    </button> */}
                         <TaskModal isOpen={isTaskModalOpen} handleCloseModal={handleCloseModal} />
-                        <DepartmentModal isOpen={isDepartmentModalOpen} handleCloseModal={handleCloseModal} />
+                        {/* <DepartmentModal isOpen={isDepartmentModalOpen} handleCloseModal={handleCloseModal} /> */}
                     </div>
+                </div>
+                <div className=' mx-4'>
+                    <TasksView />
                 </div>
             </div>
         </div>

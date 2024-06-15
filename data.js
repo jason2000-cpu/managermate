@@ -5,6 +5,8 @@ export const users = [
         SName: "Mwangi",
         email: "jackson@gmail.com",
         phone: "+254797955092",
+        assignedTask: false,
+        department: "head",
         userType: "admin",
         password: "12345"
     },
@@ -14,6 +16,8 @@ export const users = [
         SName: "Thompson",
         email: "alicethompson@gmail.com",
         phone:"+254792945092",
+        assignedTask: false,
+        department: "head",
         userType: "manager",
         password:"12345"
     },
@@ -23,6 +27,19 @@ export const users = [
         SName: "Tate",
         email: "petertate@gmail.com",
         phone:"+254792945126",
+        assignedTask: true,
+        department: "IT",
+        userType: "user",
+        password: "12345"
+    },
+    {
+        id: 3,
+        FName: "Ann",
+        SName: "Nyaboke",
+        email: "annnyabs@gmail.com",
+        phone:"+254792945321",
+        assignedTask: false ,
+        department: "Finance",
         userType: "user",
         password: "12345"
     }
@@ -44,8 +61,9 @@ export const todos = [
         title: "User Interface Design",
         start: "2024-06-07",
         end: "2024-06-10",
+        assigned_to: 'Peter Tate',
         assigned_by: "Admin Jackson",
-        description:"",
+        description:"Using Your preffered tool  create an intuitive UI",
         color: "'#f56954'",
         status: "complete",
     },
@@ -54,8 +72,9 @@ export const todos = [
         title: "Frontend Development",
         start: "2024-06-10",
         end: "2024-06-13",
+        assigned_to: 'Peter Tate',
         assigned_by: "Admin Jackson",
-        description:"",
+        description:"Following The UI created earlier  develope the frontend",
         color: "#f39c12",
         status: "complete"
     },
@@ -64,8 +83,9 @@ export const todos = [
         title: "API Development",
         start: "2024-06-13",
         end: "2024-06-15",
+        assigned_to: 'Peter Tate',
         assigned_by: "Admin Jackson",
-        description:"",
+        description:"Using Flask design and develope an API",
         color: "#00a65a",
         status: "inprogress"
     },
@@ -74,8 +94,9 @@ export const todos = [
         title: "API Intergration",
         start: "2024-06-15",
         end: "2024-06-18",
+        assigned_to: 'Peter Tate',
         assigned_by: "Admin Jackson",
-        description:"",
+        description:"Intergrate the frontend to the API",
         color: "#64a0f5",
         status: "incomplete"
     },
@@ -84,8 +105,9 @@ export const todos = [
         title: "Web App Deployment",
         start:"2024-06-18",
         end: "2024-06-21",
+        assigned_to: 'Peter Tate',
         assigned_by: "Admin Jackson",
-        description:"",
+        description:"Deploy the Whole application on Vercel",
         color: "#083778",
         status: "incomplete"
     }
