@@ -8,11 +8,8 @@ import CustomBtn from '../ui/Button'
 import { useSelector, useDispatch } from 'react-redux'
 import { loginDispatch } from '@/lib/slices/userSlice'
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-
-function LoginForm(){
+function LoginForm({ toast }){
 	const { login } = useUserHook();
 	const router = useRouter()
 	const dispatch = useDispatch();
@@ -36,7 +33,17 @@ function LoginForm(){
 		if (res.status === 'Success') {
 			dispatch(loginDispatch(res.message))
 			toast.success("Login Successfull!")
-			router.push("/dashboard")
+			console.log("User Type:::",res.message.userType)
+			switch (res.message.userType){
+				case "admin":
+					router.push("/admin")
+					break;
+				case "manager":
+					router.push("/manager")
+					break;
+				default:
+					router.push("/dashboard")
+			}
 		} else {
 			toast.error("Login Failed. Please check your credentials")
 		}

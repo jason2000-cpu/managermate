@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // icons
 import { FcGoogle } from "react-icons/fc";
 import { PiMicrosoftOutlookLogo } from "react-icons/pi";
@@ -24,7 +27,7 @@ export default function Login(){
 							<span className="text-sm">Please Enter Your Email and Password to Login</span>
 						</div>
 						<div>
-							<LoginForm />
+							<LoginForm  toast={toast}/>
 							<div className="flex justify-end mt-2">
 								<Link href={'/'}>Forgot Password ?</Link>
 							</div>

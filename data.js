@@ -43,7 +43,7 @@ export const todos = [
         id: 1,
         title: "User Interface Design",
         start: "2024-06-07",
-        date_due: "2024-06-10",
+        end: "2024-06-10",
         assigned_by: "Admin Jackson",
         description:"",
         color: "'#f56954'",
@@ -89,4 +89,44 @@ export const todos = [
         color: "#083778",
         status: "incomplete"
     }
+]
+
+
+export const departments = [
+    {
+        id: 1,
+        name: "Human Resource",
+        code: "HR-120Z",
+        HOD: "James Peter",
+        contactEmail: "info@hrmanagermate",
+        date_created: "2024-03-02",
+        emmployees: [3],
+    },
+    {
+        id: 2,
+        name: "Finance",
+        code: "FIN-120Z",
+        HOD: "Eunice Thompson",
+        contactEmail: "info@finmanagermate",
+        date_created: "2024-01-02",
+        emmployees: [3],
+    },
+    {
+        id: 3,
+        name: "IT",
+        code: "IT-120Z",
+        HOD: "Jackson Mwangi",
+        contactEmail: "info@itmanagermate",
+        date_created: "2023-12-02",
+        emmployees: [3],
+    },
+    {
+        id: 4,
+        name: "Sales",
+        code: "SL-120Z",
+        HOD: "James Peter",
+        contactEmail: "info@salesmanagermate",
+        date_created: "2024-05-02",
+        emmployees: [3],
+    },
 ]

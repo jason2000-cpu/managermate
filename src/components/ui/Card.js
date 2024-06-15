@@ -12,7 +12,7 @@ import SelectInput from './SelectInput';
 function Card({data}){
     const [optionValue, setOptionValue ] = useState(data.status)
 
-    const time = TimeCalculator(data.date_start, data.date_due)
+    const time = TimeCalculator(data.start, data.end)
 
     const handleChange = (e)=>{
         setOptionValue(e.target.value)
@@ -26,7 +26,7 @@ function Card({data}){
             <div className='flex justify-between'>
                 <div className='flex space-x-2'>
                     <FaRegCalendarAlt size={20}/>
-                    <span>{data.start}</span>
+                    <span>{data.end}</span>
                 </div>
                 <div className='flex'>
                     <MdOutlineTimer size={20} />
