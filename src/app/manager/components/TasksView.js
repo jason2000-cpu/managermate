@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react'
 import TasksTable from './tabels/TasksTable';
-import { todos } from '../../../../data';
+// import { todos } from '../../../../data';
+import useTaskHook from '@/hooks/useTasksHook';
 
 const filterOptions = ['all', 'inprogress', 'complete'];
 
 function TasksView(){
+  const { tasks }  = useTaskHook();
     const [filter, setFilter] = useState('all');
     const handleActionClick = (task) => {
         console.log('Action clicked for task:', task);
@@ -16,7 +18,7 @@ function TasksView(){
     const handleChange = (e) =>{
         setFilter(e.target.value)
     }
-    const filteredTodos = filter !== 'all' ? todos.filter(todo =>  todo.status === filter) : todos 
+    const filteredTasks = filter !== 'all' ? tasks.filter(task =>  task.status === filter) : tasks 
       return (
         <div className="p-6">
           <h1 className="text-2xl font-bold mb-4">Tasks</h1>
@@ -30,7 +32,7 @@ function TasksView(){
                 })}
             </select>
           </div>
-          <TasksTable data={filteredTodos} onActionClick={handleActionClick} />
+          <TasksTable data={filteredTasks} onActionClick={handleActionClick} />
         </div>
       );
 };

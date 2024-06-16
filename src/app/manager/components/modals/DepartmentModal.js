@@ -2,10 +2,14 @@
 
 import React, { useState } from 'react'
 import { Dialog } from '@headlessui/react';
-import { departments } from '../../../../../data';
+import { toast } from "react-toastify";
+// import { departments } from '../../../../../data';
+import useDepartmentHook from '@/hooks/useDepartmentHook';
 
 function DepartmentModal({ isOpen, handleCloseModal }){
     if (!isOpen) return null;
+
+    const { createDepartment, departments } = useDepartmentHook();
 
     const [newDepartment, setNewDepartment] = useState({
       name: '',
@@ -23,9 +27,15 @@ function DepartmentModal({ isOpen, handleCloseModal }){
       });
     };
   
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       console.log(newDepartment)
+      const resp = await createDepartment(newDepartment)
+      if (resp.status === "Success"){
+        toast.success(resp.message)
+      } else {
+        toast.error(resp.message)
+      }
       handleCloseModal();
     };
     return (
@@ -47,10 +57,11 @@ function DepartmentModal({ isOpen, handleCloseModal }){
                 <div className="mb-4 space-y-8">
                     <div className='flex mt-5 space-x-4'>
                             <div className='w-full'>
-                                <label htmlFor='name'  className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                                <label htmlFor='name'  className="block text-sm font-medium text-gray-700 mb-1">Name</label>
                                 <input
                                 className="border p-2 rounded w-full"
                                 type="test"
+                                name='name'
                                 placeholder="Department Name"
                                 value={newDepartment.name}
                                 onChange={handleChange}
@@ -61,6 +72,7 @@ function DepartmentModal({ isOpen, handleCloseModal }){
                                 <input
                                 className="border p-2 rounded w-full"
                                 type="test"
+                                name='HOD'
                                 placeholder="HOD"
                                 value={newDepartment.HOD}
                                 onChange={handleChange}
@@ -73,6 +85,7 @@ function DepartmentModal({ isOpen, handleCloseModal }){
                         <textarea
                         className="border p-2 rounded w-full h-[10rem] outline-none"
                         type="date"
+                        name='description'
                         placeholder="Write a Small Description...."
                         value={newDepartment.description}
                         onChange={handleChange}
@@ -85,6 +98,7 @@ function DepartmentModal({ isOpen, handleCloseModal }){
                             <input
                                 className="border p-2 rounded w-full"
                                 type="email"
+                                name='contactEmail'
                                 placeholder="email"
                                 value={newDepartment.contactEmail}
                                 onChange={handleChange}
@@ -95,6 +109,7 @@ function DepartmentModal({ isOpen, handleCloseModal }){
                             <select
                                 id="invoices"
                                 value={newDepartment.parentDepartment}
+                                name='parentDepartment'
                                 onChange={handleChange}
                                 className=" border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-indigo-500 focus:border-indigo-500 w-[16rem]"
                             >
@@ -111,7 +126,7 @@ function DepartmentModal({ isOpen, handleCloseModal }){
                     className="bg-[#083778] text-white py-2 px-4 rounded hover:bg-[#083778e1] w-full"
                     onClick={handleSubmit}
                     >
-                  Create New Task
+                  Create New Department
                 </button>
               </div>
             </div>

@@ -2,16 +2,24 @@
 
 import React, { useState } from 'react'
 import { Dialog } from '@headlessui/react';
-
+import useTaskHook from '@/hooks/useTasksHook';
+import { ToastContainer, toast } from "react-toastify";
+import useUserHook from '@/hooks/useUserHook';
 
 function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
     if (!isTaskViewModalOpen) return null;
+
+    const { deleteTask, updateTask } = useTaskHook();
+
+    const { users } = useUserHook();
+    const employees = users.filter(user => user.userType === 'user')
 
     const [taskInView, setTaskInView] = useState({
         title: task.title,
         description: task.description,
         start: task.start,
-        end: task.end
+        end: task.end,
+        assigned_to: task.assigned_to
       });
     
       const handleChange = (e) => {
@@ -22,14 +30,24 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
         });
       };
     
-      const handleSubmit = (e) => {
+      const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(taskInView);
+        const res = await updateTask(task.id, taskInView);
+        console.log("UPDATING TASK RESPONSE:::", res);
+        if (res.status === "Success"){
+          toast.success("Task Updated Successfully!")
+        } else {
+          toast.error("Error While Updating Task")
+        }
+
         handleCloseModal();
       };
 
-      const handleTaskDelete = () =>{
-        alert(`Deleting task ${task.title}`)
+      const handleTaskDelete = async () =>{
+        const resp = await deleteTask(task.id);
+        console.log("RESPONSE ON DELETE:::", resp);
+        handleCloseModal()
       }
     return (
         <Dialog open={isTaskViewModalOpen} onClose={handleCloseModal} className="fixed z-10 inset-0 overflow-y-auto">
@@ -37,7 +55,7 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
             <div className="bg-[#F4FBFA] rounded-lg shadow-xl p-6 w-full max-w-xl  ">
               <Dialog.Title className="text-lg font-bold">
                 <div className='flex justify-between items-center'>
-                    <span>New Task</span>
+                    <span>Task View</span>
                     <span
                         className="cursor-pointer"
                         onClick={handleCloseModal}
@@ -55,6 +73,7 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
                                 className="border p-2 rounded w-full"
                                 type="test"
                                 placeholder="Title"
+                                name='title'
                                 value={taskInView.title}
                                 onChange={handleChange}
                                 />
@@ -64,11 +83,30 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
                                 <textarea
                                 className="border p-2 rounded w-full h-[10rem] outline-none"
                                 type="date"
+                                name='description'
                                 placeholder="Write a Small Description...."
                                 value={taskInView.description}
                                 onChange={handleChange}
                                 ></textarea>
                             </div>
+                            {task.assigned ? null : (
+                              <div className='my-6 space-x-4'>
+                                <span className='font-semibold'>Assign To </span>
+                                <select 
+                                  className='border w-40 px-1 h-7 rounded-md'
+                                  onChange={handleChange}
+                                  name='assigned_to'
+                                  value={taskInView.assigned_to}
+                                >
+                                {/* <option>Hello</option> */}
+                                  {employees.map((employee, key)=>{
+                                    return (
+                                      <option key={key} value={`${employee.FName} ${employee.SName}`}>{`${employee.FName} ${employee.SName}`}</option>
+                                    )
+                                  })}
+                                </select>
+                              </div>
+                            )}
                     </div>
                     <div className='flex mt-5 justify-between'>
                         <div>
@@ -76,6 +114,7 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
                             <input
                                 className="border p-2 rounded w-full"
                                 type="date"
+                                name='start'
                                 placeholder="Start Date"
                                 value={taskInView.start}
                                 onChange={handleChange}
@@ -86,6 +125,7 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
                             <input
                                 className="border p-2 rounded w-full "
                                 type="date"
+                                name='end'
                                 placeholder="Due Date"
                                 value={taskInView.end}
                                 onChange={handleChange}

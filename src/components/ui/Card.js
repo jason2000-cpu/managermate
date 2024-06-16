@@ -16,6 +16,7 @@ function Card({data}){
 
     const handleChange = (e)=>{
         setOptionValue(e.target.value)
+        
     }
     return (
         <div className='border rounded-lg px-4 py-2 shadow-lg flex flex-col space-y-6 mx-2 mb-4'>

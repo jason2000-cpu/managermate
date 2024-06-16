@@ -8,7 +8,7 @@ import FloatingLabelInput from "../ui/FloatingLabelInput"
 import useUserHook from "@/hooks/useUserHook";
 import CustomBtn from '../ui/Button';
 
-function SignupForm(){
+function SignupForm({ toast }){
     const router = useRouter();
 	const { register } = useUserHook();
 	const [phone, setPhone] = useState('');
@@ -39,10 +39,14 @@ function SignupForm(){
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		console.log(form)
-		const user = register(form)
-		console.log("USER CREATED:::", user)
-		toast.success("Registration Successfull!")
-		router.push(`/${user.id}/dashboard`)
+		const res = register(form)
+		console.log("USER CREATED:::", res.messsage)
+        if (res.status == 'success') {
+            toast.success("Registration Successfull!")
+            router.push(`/${user.id}/dashboard`)
+        } else {
+            toast.error("User Registration Failed")
+        }
 	}
     return (
         <div>
@@ -52,7 +56,7 @@ function SignupForm(){
                     className="cursor-pointer"
                     label="First name"
                     type="text"
-                    name={"Fname"}
+                    name={"FName"}
                     value={form.FName}
                     handleChange={handleChange}
                     />
@@ -60,7 +64,7 @@ function SignupForm(){
                     className="cursor-pointer"
                     label="Second name"
                     type="text"
-                    name={"Sname"}
+                    name={"SName"}
                     handleChange={handleChange}
                     value={form.SName}
                     />

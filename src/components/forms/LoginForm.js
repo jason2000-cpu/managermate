@@ -27,7 +27,7 @@ function LoginForm({ toast }){
 		})
 	}
 	const handleSubmit = (e) => {
-		e.preventDefault();
+		e.preventDefault()
 		const res = login(form)
 		console.log(res)
 		if (res.status === 'Success') {

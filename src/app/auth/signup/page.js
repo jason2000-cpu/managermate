@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import  Image from "next/image"
 import { useRouter } from "next/navigation";
-// import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 // icons
 import { FcGoogle } from "react-icons/fc";
@@ -25,7 +25,7 @@ export default function Signup(){
 							<span className="text-3xl font-extrabold">Welcome!</span>
 							<span className="text-sm">Please Enter Your details to Signup</span>
 						</div>
-                        <SignupForm />
+                        <SignupForm toast={toast} />
                         <div className="flex flex-col w-[100%] items-center px-3">
                             <div className="flex items-center justify-center w-[100%]">
                                 <span className="w-[50%]"><hr /></span>
@@ -49,7 +49,7 @@ export default function Signup(){
 
 				{/* <Footer /> */}
 			</div>
-			{/* <ToastContainer position="top-right" /> */}
+			<ToastContainer position="top-right" />
 		</>
 	)
 }

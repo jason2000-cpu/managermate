@@ -2,12 +2,14 @@
 
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
+import useTaskHook from '@/hooks/useTasksHook';
 
-const CreateTaskModal = ({ isOpen, handleCloseModal }) => {
+const CreateTaskModal = ({ isOpen, handleCloseModal, toast }) => {
   if (!isOpen) return null;
 
+  const { createTask } = useTaskHook();
   const [newTask, setNewTask] = useState({
-    title: '',
+    title: 'Perform User Testing',
     description: '',
     start: '',
     end: ''
@@ -21,9 +23,17 @@ const CreateTaskModal = ({ isOpen, handleCloseModal }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =  async (e) => {
     e.preventDefault();
-    console.log(newTask);
+    const res = await createTask(newTask);
+    if (res.status === "Success"){
+      // alert('Task Created Successfully')
+      toast.success('Task Created Successfully')
+      console.log(res.message)
+    } else{
+      // alert('An Error Occured While creating task')
+      toast.error('An Error Occured While creating task')
+    }
     handleCloseModal();
   };
 
@@ -48,18 +58,20 @@ const CreateTaskModal = ({ isOpen, handleCloseModal }) => {
                         <div className='w-full'>
                             <label htmlFor='title'  className="block text-sm font-medium text-gray-700 mb-1">Title</label>
                             <input
-                            className="border p-2 rounded w-full"
-                            type="test"
-                            placeholder="Title"
-                            value={newTask.title}
-                            onChange={handleChange}
+                              name='title'
+                              className="border p-2 rounded w-full"
+                              type="text"
+                              placeholder="Title"
+                              value={newTask.title}
+                              onChange={handleChange}
                             />
                         </div>
                         <div>
                             <lable htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">Description</lable>
                             <textarea
+                            name='description'
                             className="border p-2 rounded w-full h-[10rem] outline-none"
-                            type="date"
+                            type="text"
                             placeholder="Write a Small Description...."
                             value={newTask.description}
                             onChange={handleChange}
@@ -72,6 +84,7 @@ const CreateTaskModal = ({ isOpen, handleCloseModal }) => {
                         <input
                             className="border p-2 rounded w-full"
                             type="date"
+                            name="start"
                             placeholder="Start Date"
                             value={newTask.start}
                             onChange={handleChange}
@@ -82,6 +95,7 @@ const CreateTaskModal = ({ isOpen, handleCloseModal }) => {
                         <input
                             className="border p-2 rounded w-full "
                             type="date"
+                            name='end'
                             placeholder="Due Date"
                             value={newTask.end}
                             onChange={handleChange}

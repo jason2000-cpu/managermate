@@ -1,16 +1,21 @@
 'use client'
 
 import React, { useState , useEffect } from "react"
+import axios from 'axios'
+import { v4 as uuidv4 } from 'uuid';
 
 import { users as usersData } from "../../data";
 import { useDispatch } from "react-redux";
 
+
+const baseUrl = "http://localhost:3001"
 function useUserHook (){
     const [ users, setUsers ] = useState([]);
     useEffect(()=>{
         async function fetchUsers(){
             try {
-                setUsers(usersData);
+                const response = await axios.get(`${baseUrl}/users`)
+                setUsers(response.data);
             } catch (err){
                 console.log(err)
             }
@@ -48,14 +53,21 @@ function useUserHook (){
     function register(formData){
         const newUser = {
             ...formData,
-            id: "123JM",
-            userType: "user"
+            id: uuidv4(),
+            userType: "user",
+            assignedTask: false ,
+            department : "IT",
+
         }
         let res = {};
 
         try {
             setUsers({...users, newUser});
-            res = {status: "Success", message: newUser}
+            const response = axios.post(`${baseUrl}/users`, newUser)
+
+            if (response.status == '200'){
+                res = {status: "Success", message: newUser}
+            }
         } catch (error) {
             res = {status: "Failure", message: error}
         }
@@ -63,10 +75,12 @@ function useUserHook (){
         return res;
     }
 
+
     return {
+        users,
         getUser,
         login,
-        register
+        register,
     }
 
 }
