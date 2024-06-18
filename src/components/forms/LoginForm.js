@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import useUserHook from '@/hooks/useUserHook'
 import FloatingLabelInput from '../ui/FloatingLabelInput'
-import CustomBtn from '../ui/Button'
+import CustomBtn from '../ui/CustomBtn'
 import { useSelector, useDispatch } from 'react-redux'
 import { loginDispatch } from '@/lib/slices/userSlice'
 

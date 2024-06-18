@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import FloatingLabelInput from '../ui/FloatingLabelInput'
-import CustomBtn from '../ui/Button';
+import CustomBtn from '../ui/CustomBtn';
 import useUserHook from '@/hooks/useUserHook';
 
 

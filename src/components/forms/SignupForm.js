@@ -6,7 +6,7 @@ import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/material.css'
 import FloatingLabelInput from "../ui/FloatingLabelInput"
 import useUserHook from "@/hooks/useUserHook";
-import CustomBtn from '../ui/Button';
+import CustomBtn from '../ui/CustomBtn';
 
 function SignupForm({ toast }){
     const router = useRouter();
