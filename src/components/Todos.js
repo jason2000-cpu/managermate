@@ -9,9 +9,9 @@ import useTaskHook from "@/hooks/useTasksHook"
 function Todos(){
     // const [todos, setTodos] = useState([])
     const { getUserTasks } = useTaskHook();
-    const user = JSON.parse(localStorage.getItem("activeUser"));
+    // const user = JSON.parse(localStorage.getItem("activeUser"));
 
-    const tasks  = getUserTasks(user.id);
+    const tasks  = getUserTasks("4");
 
     const incompleteTasks = tasks.filter((task) => task.status === "incomplete")
     return (

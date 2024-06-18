@@ -7,9 +7,9 @@ import useTaskHook from "@/hooks/useTasksHook"
 
 function Completed(){
     const { getUserTasks } = useTaskHook();
-    const user = JSON.parse(localStorage.getItem("activeUser"));
+    // const user = JSON.parse(localStorage.getItem("activeUser"));
 
-    const tasks  = getUserTasks(user.id);
+    const tasks  = getUserTasks("4");
 
     const completedTasks = tasks.filter((task) => task.status === "complete")
     return (

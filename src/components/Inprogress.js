@@ -7,9 +7,9 @@ import useTaskHook from "@/hooks/useTasksHook"
 
 function Inprogress(){
     const { getUserTasks } = useTaskHook();
-    const user = JSON.parse(localStorage.getItem("activeUser"));
+    // const user = JSON.parse(localStorage.getItem("activeUser"));
 
-    const tasks  = getUserTasks(user.id);
+    const tasks  = getUserTasks("4");
 
     const inprogressTasks = tasks.filter((task) => task.status === "inprogress")
     return (
