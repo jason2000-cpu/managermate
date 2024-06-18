@@ -5,6 +5,7 @@ import { Dialog } from '@headlessui/react';
 import useTaskHook from '@/hooks/useTasksHook';
 import { ToastContainer, toast } from "react-toastify";
 import useUserHook from '@/hooks/useUserHook';
+import { useSelector } from 'react-redux';
 
 function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
     if (!isTaskViewModalOpen) return null;
@@ -13,6 +14,7 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
 
     const { users } = useUserHook();
     const employees = users.filter(user => user.userType === 'user')
+
     const user = JSON.parse(localStorage.getItem("activeUser"));
 
     const [taskInView, setTaskInView] = useState({

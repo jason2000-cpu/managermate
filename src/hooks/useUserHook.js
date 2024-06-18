@@ -25,7 +25,7 @@ function useUserHook (){
         }
 
         fetchUsers();
-    },[usersData])
+    },[users])
 
     function getUser(id){
         const user = users.find((user) => user.id === id)

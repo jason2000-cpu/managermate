@@ -26,7 +26,7 @@ function useTaskHook(){
         }
         
         getAllTasks();
-    }, [tasks.length])
+    }, [tasks])
 
 
     async function getTasks(userId){

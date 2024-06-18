@@ -21,7 +21,7 @@ function useDepartmentHook(){
             }
         }
         getAllDepartments();
-    }, [])
+    }, [departments])
 
 
     function generateRandomCode() {
