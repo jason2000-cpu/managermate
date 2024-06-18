@@ -45,7 +45,6 @@ function SideNav(){
     const [active, setActive] = useState(false);
     const pathname = usePathname();
     const absPath = pathname.split("/")[2]
-    console.log("Absolute Path::", absPath, pathname);
     return (
         <Nav links={links} absPath={absPath} />
     )
