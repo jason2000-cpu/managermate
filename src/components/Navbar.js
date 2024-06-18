@@ -28,7 +28,7 @@ function Navbar() {
   return (
     <div className='flex justify-between px-16  items-center py-2 border-b-2 shadow-lg shadow-[#619ff527] fixed w-full bg-white'>
         <span>
-            <Image src={'/static/images/logo1.png'} height={40} width={40} alt='brand logo' />
+            <img src={'/static/images/logo1.png'} height={40} width={40} alt='brand logo' />
         </span>
         <div className='space-x-36'>
             { links.map((link, key) => {

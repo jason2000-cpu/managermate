@@ -10,7 +10,7 @@
 - Using git clone the repository locally
 
 ```bash
-    git clone https://github.com/jason2000-cpu/
+    git clone https://github.com/jason2000-cpu/managermate_api.git
 ```
 
 ### Install the dependancies
@@ -133,7 +133,7 @@
 - using git clone the repository to your local pc 
 
 ```bash
-    git clone https://github.com/jason2000-cpu/
+    git clone https://github.com/jason2000-cpu/managermate.git
 ```
 
 ### Install Dependancies
@@ -198,4 +198,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - This web application is deployed  on the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
-- The live version can be accessed on [ManagerMate](https://github.com/jason2000-cpu/managermate)
+- The live version can be accessed on [ManagerMate](https://managermate.vercel.app/)
