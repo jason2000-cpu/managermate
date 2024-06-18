@@ -1,4 +1,3 @@
-// slices/counterSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 export const counterSlice = createSlice({

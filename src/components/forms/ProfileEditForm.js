@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import FloatingLabelInput from '../ui/FloatingLabelInput'
 import CustomBtn from '../ui/CustomBtn';
 import useUserHook from '@/hooks/useUserHook';
+import { useSelector } from 'react-redux';
 
 
 function ProfileEditForm(){
@@ -20,7 +21,6 @@ function ProfileEditForm(){
 
     const handleChange = (e)=>{
         const { name, value } = e.target;
-        console.log(name, ":::::", value)
         setFormData({
             ...formData,
             [name]: value
@@ -29,7 +29,6 @@ function ProfileEditForm(){
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
-        console.log("PROFILE UPDATE::;", formData)
         const resp = await updateUser(user.id, formData)
         if (resp.status === 'Success'){
             toast.success(resp.message)
