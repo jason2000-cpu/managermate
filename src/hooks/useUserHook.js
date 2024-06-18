@@ -8,7 +8,10 @@ import { users as usersData } from "../../data";
 import { useDispatch } from "react-redux";
 
 
-const baseUrl = "http://localhost:3001"
+// const baseUrl = "http://localhost:3001"
+
+const baseUrl = "https://managermate-api.vercel.app"
+
 function useUserHook (){
     const [ users, setUsers ] = useState([]);
     useEffect(()=>{

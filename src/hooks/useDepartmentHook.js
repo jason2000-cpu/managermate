@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
-const baseUrl = "http://localhost:3001";
+// const baseUrl = "http://localhost:3001";
+const baseUrl = "https://managermate-api.vercel.app"
 
 function useDepartmentHook(){
     const [ departments, setDepartments ] = useState([]);
