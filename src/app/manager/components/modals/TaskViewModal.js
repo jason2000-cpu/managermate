@@ -15,7 +15,7 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
     const { users } = useUserHook();
     const employees = users.filter(user => user.userType === 'user')
 
-    const user = JSON.parse(localStorage.getItem("activeUser"));
+    // const user = JSON.parse(localStorage.getItem("activeUser"));
 
     const [taskInView, setTaskInView] = useState({
         title: task.title,
@@ -23,7 +23,8 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
         start: task.start,
         end: task.end,
         assigned_to: task.assigned_to,
-        assigned_by: `${user.FName} ${user.SName}`
+        // assigned_by: `${user.FName} ${user.SName}`
+        assigned_by: "Jackson"
       });
     
       const handleChange = (e) => {

@@ -16,7 +16,7 @@ export const userSlice = createSlice({
         loginDispatch: (state, val) =>{
             console.log("USER DATA IN REDUX::", val.payload)
             state.value = val.payload
-            localStorage.setItem("activeUser", JSON.stringify(val.payload))
+            // localStorage.setItem("activeUser", JSON.stringify(val.payload))
             console.log("VALUE AFTER SETTING:::", state.value)
         },
 

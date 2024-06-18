@@ -9,13 +9,13 @@ import { useSelector } from 'react-redux';
 
 
 function ProfileEditForm(){
-    const user = JSON.parse(localStorage.getItem("activeUser"));
+    // const user = JSON.parse(localStorage.getItem("activeUser"));
     const { updateUser } = useUserHook()
     const [ formData, setFormData ] = useState({
-        "FName": user.FName,
-        "SName": user.SName,
-        "email": user.email,
-        "phone": user.phone,
+        "FName": '',
+        "SName": '',
+        "email": '',
+        "phone": '',
         "password": ""
     })
 
