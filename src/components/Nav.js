@@ -11,9 +11,9 @@ function Nav({ links, absPath }){
                 <Image src={'/static/images/logo2.png'} width={150} height={150} alt='logo' />
             </div>
             <div className='mt-20'>
-                { links.map((link) => {
+                { links.map((link, key) => {
                     return (
-                        <Link href={link.path} className={`items-center flex py-2 px-2 mx-1 my-6 space-x-2 ${absPath === link.path ? 'border text-white bg-[#083778] rounded': null}`}>
+                        <Link key={key} href={link.path} className={`items-center flex py-2 px-2 mx-1 my-6 space-x-2 ${absPath === link.path ? 'border text-white bg-[#083778] rounded': null}`}>
                             <span>{link.icon}</span>
                             <span className='text-xl'>{link.name}</span>
                         </Link>

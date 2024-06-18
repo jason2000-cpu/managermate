@@ -6,6 +6,8 @@ import SideNav from '@/components/SideNav';
 import TopBar from '@/components/TopBar';
 import ProfileEditForm from '@/components/forms/ProfileEditForm';
 import Image from 'next/image';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 function Settings(){
     const [profilePicture, setProfilePicture] = useState(null);
@@ -77,6 +79,10 @@ function Settings(){
               </div>
             </div>
         </div>
+        <ToastContainer
+          theme='dark'
+          position='top-right' 
+         />
     </div>
     )
 }

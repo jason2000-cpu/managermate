@@ -1,35 +1,16 @@
-// src/App.js
+'use client'
+
 import React from 'react';
 import Cal from '@/components/Calendar';
 import SideNav from '@/components/SideNav';
 import TopBar from '@/components/TopBar';
-import { todos as events } from '../../../../data';
+import useTaskHook from "@/hooks/useTasksHook"
 
 function MyCalendar() {
-  // const events = [
-  //   {
-  //     title: 'Todo 1',
-  //     start: "2024-06-13",
-  //     end: "2024-06-18",
-  //     color: '#f56954',
-  //     description: 'Details about Todo 1',
-  //   },
-  //   {
-  //     title: 'Todo 2',
-  //     start: new Date(2024, 5, 10),
-  //     end: new Date(2024, 5, 12),
-  //     color: '#f39c12',
-  //     description: 'Details about Todo 2',
-  //   },
-  //   {
-  //     title: 'Todo 3',
-  //     start: new Date(2024, 5, 19),
-  //     end: new Date(2024, 5, 22),
-  //     color: '#00a65a',
-  //     description: 'Details about Todo 3',
-  //   },
-  // ];
+  const { getUserTasks } = useTaskHook();
+  const user = JSON.parse(localStorage.getItem("activeUser"));
 
+  const tasks  = getUserTasks(user.id);
   return (
     <div>
         <div className="flex">
@@ -38,7 +19,7 @@ function MyCalendar() {
             <Counter /> */}
             <div className="w-full">
               <TopBar />
-              <Cal events={events} />
+              <Cal events={tasks} />
             </div>
         </div>
     </div>

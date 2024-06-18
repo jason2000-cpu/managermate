@@ -35,7 +35,7 @@ const links =[
     {
         id: 4,
         name: "Settings",
-        path: "dashboard/settings",
+        path: "/dashboard/settings",
         icon: <IoMdSettings  size={20}/>
     }
 

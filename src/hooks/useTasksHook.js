@@ -21,12 +21,10 @@ function useTaskHook(){
                 setIsLoading(false);
             } catch(err){
                 setError(err);
-                console.log(`An Error Occured while fetching All Tasks: ${error}`)
             }
         }
         
         getAllTasks();
-        console.log("Tasks Length increased or decreased!!!")
     }, [tasks.length])
 
 
@@ -39,11 +37,16 @@ function useTaskHook(){
             setIsLoading(false);
         } catch (err){
             setError(err);
-            res = {status: "Failure", message: error}
+            res = {status: "Failure", message: "An Error Occured While Fetchig User Tasks"}
             setIsLoading(false);
         }
         
         return res;
+    }
+
+    function getUserTasks(userId){
+        const userTasks = tasks.filter(task => task.assigned_to === userId)
+        return userTasks;
     }
 
     async function updateTask(id, updatedTask){
@@ -116,7 +119,8 @@ function useTaskHook(){
         getTasks,
         updateTask,
         createTask,
-        deleteTask
+        deleteTask,
+        getUserTasks
     }
 }
 

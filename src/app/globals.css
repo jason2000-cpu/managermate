@@ -2,3 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.hide-scrollbar::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* Internet Explorer */
+    scrollbar-width: none;  /* Firefox */
+}

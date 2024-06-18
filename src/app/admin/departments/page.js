@@ -1,23 +1,24 @@
 'use client'
 
 import React, { useState } from 'react'
+import DepartmentView from '../components/DeparmentsView';
 import SideNavigation from '../components/SideNavigation';
 import TopBar from '@/components/TopBar';
-import UsersTable from './components/usersTable';
-import { users } from "../../../../data";
 import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
-function UsersPage(){
 
+function AdminDepartments(){
     return (
         <>
-            <div className="flex">
-                <SideNavigation />
-                <div className="w-full">
+            <div>
+                <div className="flex">
+                    <SideNavigation />
+                    <div className="w-full">
                     <TopBar />
-                    <div className="mx-10 mt-10 space-y-5">
-                        <span className='font-bold text-xl'>Users</span>
-                        <UsersTable data={users} />
+                    <div className="p-6">
+                        <DepartmentView />
+                    </div>
                     </div>
                 </div>
             </div>
@@ -29,4 +30,5 @@ function UsersPage(){
     )
 }
 
-export default UsersPage;
+
+export default AdminDepartments;

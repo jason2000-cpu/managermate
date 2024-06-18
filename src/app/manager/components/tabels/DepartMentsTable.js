@@ -1,12 +1,23 @@
 'use client'
 
 import React, { useState } from 'react'
+import DepartmentViewModal from '../modals/DepartmentViewModal';
+import useDepartmentHook from '@/hooks/useDepartmentHook';
 
-function DepartmentsTable({ data }){
+function DepartmentsTable({ data }){  
+  const [ isDepartmentModalOpen, setDepartmentInViewModalOpen] = useState(false);
+  const [ departmentInView, setDepartmentInView ] = useState({})
 
     const handleModalOpen = (item)=>{
-        alert(`Opening Department ${item.name}`)
+        setDepartmentInView(item);
+        setDepartmentInViewModalOpen(true)
     }
+
+    const handleCloseModal = ()=>{
+      setDepartmentInViewModalOpen(false)
+    }
+
+    console.log("DEPARTMENT TABLE DATA:::", data[0])
     return (
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white">
@@ -25,11 +36,11 @@ function DepartmentsTable({ data }){
               {data.map((item, index) => (
                 <tr key={index} className="text-center">
                   <td className="py-2 px-4 border-b">{item.name}</td>
-                  <td className="py-2 px-4 border-b">{item.code}</td>
+                  <td className="py-2 px-4 border-b ">{item.code}</td>
                   <td className="py-2 px-4 border-b">{item.contactEmail}</td>
                   <td className="py-2 px-4 border-b">{item.HOD}</td>
                   <td className="py-2 px-4 border-b">{
-                    item.emmployees.length <= 0 ? "No Employees" : `${item.emmployees.length} Employees`
+                    item.employees.length <= 0 ? "No Employees" : `${item.employees.length} Employees`
                   }</td>
                   <td className="py-2 px-4 border-b">{item.date_created}</td>
                   <td className="py-2 px-4 border-b">
@@ -45,7 +56,7 @@ function DepartmentsTable({ data }){
               ))}
             </tbody>
           </table>
-          {/* <TaskViewModal isTaskViewModalOpen={isTaskViewModalOpen} handleCloseModal={handleCloseModal}  task={taskInView}/> */}
+          <DepartmentViewModal isOpen={isDepartmentModalOpen} handleCloseModal={handleCloseModal}  department={departmentInView}/>
         </div>
       );
 }

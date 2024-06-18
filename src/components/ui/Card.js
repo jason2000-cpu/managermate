@@ -7,16 +7,21 @@ import { MdOutlineTimer } from "react-icons/md";
 import { CiUser } from "react-icons/ci";
 import { RiUser2Fill } from "react-icons/ri";
 import SelectInput from './SelectInput';
+import useTaskHook from '@/hooks/useTasksHook';
 
 
 function Card({data}){
     const [optionValue, setOptionValue ] = useState(data.status)
-
+    const { updateTask } = useTaskHook();
     const time = TimeCalculator(data.start, data.end)
 
     const handleChange = (e)=>{
         setOptionValue(e.target.value)
-        
+        const updatedTask = {
+            ...data,
+            status: e.target.value
+        }
+        updateTask(data.id, updatedTask)
     }
     return (
         <div className='border rounded-lg px-4 py-2 shadow-lg flex flex-col space-y-6 mx-2 mb-4'>

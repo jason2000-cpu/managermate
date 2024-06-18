@@ -13,13 +13,15 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
 
     const { users } = useUserHook();
     const employees = users.filter(user => user.userType === 'user')
+    const user = JSON.parse(localStorage.getItem("activeUser"));
 
     const [taskInView, setTaskInView] = useState({
         title: task.title,
         description: task.description,
         start: task.start,
         end: task.end,
-        assigned_to: task.assigned_to
+        assigned_to: task.assigned_to,
+        assigned_by: `${user.FName} ${user.SName}`
       });
     
       const handleChange = (e) => {
@@ -89,7 +91,7 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
                                 onChange={handleChange}
                                 ></textarea>
                             </div>
-                            {task.assigned ? null : (
+                            {task.assigned_to ? null : (
                               <div className='my-6 space-x-4'>
                                 <span className='font-semibold'>Assign To </span>
                                 <select 
@@ -98,10 +100,9 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
                                   name='assigned_to'
                                   value={taskInView.assigned_to}
                                 >
-                                {/* <option>Hello</option> */}
                                   {employees.map((employee, key)=>{
                                     return (
-                                      <option key={key} value={`${employee.FName} ${employee.SName}`}>{`${employee.FName} ${employee.SName}`}</option>
+                                      <option key={key} value={employee.id}>{`${employee.FName} ${employee.SName}`}</option>
                                     )
                                   })}
                                 </select>

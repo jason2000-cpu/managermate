@@ -65,7 +65,7 @@ function useUserHook (){
             setUsers({...users, newUser});
             const response = axios.post(`${baseUrl}/users`, newUser)
 
-            if (response.status == '200'){
+            if (response.status === 201){
                 res = {status: "Success", message: newUser}
             }
         } catch (error) {
@@ -75,12 +75,46 @@ function useUserHook (){
         return res;
     }
 
+    async function updateUser(id, updatedUser){
+        setUsers(users.map(user => (user.id === id ? updatedUser: user)))
 
+        let res = {}
+        try {
+            const resp = await axios.put(`${baseUrl}/users/${id}`, updatedUser)
+            if (resp.status === 200){
+                res = {status: "Success", message: "Profile Updated Successfully"}
+            }
+        } catch(err){
+            res = {status: "Failure", message: "An Error Occured While Updating Profile"}
+        }
+
+        return  res;
+    }
+
+    async function deleteUser(userId){
+        setUsers(users.map(user => user.id !== userId))
+
+        let res = {}
+        try {
+            const response = await axios.delete(`${baseUrl}/users/${userId}`)
+            
+            if (response.status === 200){
+                res = {status: "Success",  message: "User Deleted Successfully"}
+            }
+
+        } catch (err){
+            res = {status: "Failure", message: "An Error Occured While Deleting User"}
+        }
+
+        return res;
+    }
     return {
         users,
         getUser,
         login,
         register,
+        updateUser,
+        deleteUser
     }
 
 }

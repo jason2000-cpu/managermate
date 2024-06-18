@@ -70,7 +70,7 @@ function useDepartmentHook(){
         let res = {}
 
         try {
-            const response = await axios.put(`${baseUrl}/departments`, updatedDepartment)
+            const response = await axios.put(`${baseUrl}/departments/${id}`, updatedDepartment)
 
             if (response.status === 200){
                 res = {status: "Success", message: "Department Updated Successfully"}

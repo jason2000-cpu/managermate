@@ -9,7 +9,7 @@ const CreateTaskModal = ({ isOpen, handleCloseModal, toast }) => {
 
   const { createTask } = useTaskHook();
   const [newTask, setNewTask] = useState({
-    title: 'Perform User Testing',
+    title: '',
     description: '',
     start: '',
     end: ''
@@ -27,11 +27,9 @@ const CreateTaskModal = ({ isOpen, handleCloseModal, toast }) => {
     e.preventDefault();
     const res = await createTask(newTask);
     if (res.status === "Success"){
-      // alert('Task Created Successfully')
       toast.success('Task Created Successfully')
       console.log(res.message)
     } else{
-      // alert('An Error Occured While creating task')
       toast.error('An Error Occured While creating task')
     }
     handleCloseModal();
