@@ -15,8 +15,8 @@ import TopBar from "@/components/TopBar";
 
 function Dashboard(){
     // const user = useSelector((state) => state.user);
-    const user = JSON.parse(localStorage.getItem("activeUser"))
-    console.log("LOGGED IN USER:::: ", user)
+    // const user = JSON.parse(localStorage.getItem("activeUser"))
+    // console.log("LOGGED IN USER:::: ", user)
 
     return (
         <div className="flex">

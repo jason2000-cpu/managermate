@@ -8,9 +8,9 @@ import useTaskHook from "@/hooks/useTasksHook"
 
 function MyCalendar() {
   const { getUserTasks } = useTaskHook();
-  const user = JSON.parse(localStorage.getItem("activeUser"));
+  // const user = JSON.parse(localStorage.getItem("activeUser"));
 
-  const tasks  = getUserTasks(user.id);
+  const tasks  = getUserTasks('4');
   return (
     <div>
         <div className="flex">
