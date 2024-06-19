@@ -1,7 +1,7 @@
 'use client'
 
+import React from "react"
 import useUserHook from "@/hooks/useUserHook";
-import React, { useState } from "react"
 import { toast } from "react-toastify";
 
 function UsersTable({ data }){
@@ -34,7 +34,6 @@ function UsersTable({ data }){
                 <td className="py-2 px-4 border-b">{`${user.FName} ${user.SName}`}</td>
                 <td className="py-2 px-4 border-b">{user.email}</td>
                 <td className="py-2 px-4 border-b flex justify-center">
-                      {/* {user.assignedTask ? <div>Assigned</div> : <div>Not Assigned</div>} */}
                       <div className={`border rounded-full flex justify-center px-2 font-semibold ${user.assignedTask ? 'bg-green-500' : 'bg-red-400'}`}>
                           {user.assignedTask ? 'Assigned' : 'Not Assigned'}
                       </div>

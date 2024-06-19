@@ -2,20 +2,22 @@
 
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
+
+import { useAppSelector } from '@/lib/hooks';
+import { selectUser } from '@/lib/features/user/userSlice';
 import FloatingLabelInput from '../ui/FloatingLabelInput'
-import CustomBtn from '../ui/CustomBtn';
 import useUserHook from '@/hooks/useUserHook';
-import { useSelector } from 'react-redux';
 
 
 function ProfileEditForm(){
-    // const user = JSON.parse(localStorage.getItem("activeUser"));
+    const user = useAppSelector(selectUser);
+
     const { updateUser } = useUserHook()
     const [ formData, setFormData ] = useState({
-        "FName": '',
-        "SName": '',
-        "email": '',
-        "phone": '',
+        "FName": user.FName,
+        "SName": user.SName,
+        "email": user.email,
+        "phone": user.phone,
         "password": ""
     })
 

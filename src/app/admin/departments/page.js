@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import DepartmentView from '../components/DeparmentsView';
 import SideNavigation from '../components/SideNavigation';
 import TopBar from '@/components/TopBar';

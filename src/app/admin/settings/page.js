@@ -28,49 +28,41 @@ function Settings(){
         <div>
         <div className="flex">
             <SideNavigation />
-            {/* <h1>Active User: {user.userType} {user.FName} {user.SName}</h1>
-            <Counter /> */}
             <div className="w-full">
               <TopBar />
               <div className='m-10'>
                 <span className='text-2xl font-bold'>Edit Your Profile Information</span>
                 <div className='flex justify-center items-center space-x-4'>
-                    {/* <Image src={"/static/images/user1.jpg"} width={100} height={100} alt='user 1' className='rounded-full' />
-                    <span>Change</span> */}
-
-        <div>
-          <div className="flex items-center space-x-2">
-            <input
-              type="file"
-              id="file-input"
-              style={{ display: 'none' }}
-              onChange={handleFileChange}
-            />
-            {profilePictureUrl ? (
-              <img
-                src={profilePictureUrl}
-                alt="Profile"
-                width={100}
-                height={100}
-                className='rounded-full'
-              />
-            ) : (
-              <span className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center mr-4">
-                No Image
-              </span>
-            )}
-            <button
-              type="button"
-              onClick={() => document.getElementById('file-input').click()}
-              className="text-blue-600 hover:underline"
-            >
-              Change
-            </button>
-          </div>
-        </div>
-
-
-
+                    <div>
+                      <div className="flex items-center space-x-2">
+                        <input
+                          type="file"
+                          id="file-input"
+                          style={{ display: 'none' }}
+                          onChange={handleFileChange}
+                        />
+                        {profilePictureUrl ? (
+                          <img
+                            src={profilePictureUrl}
+                            alt="Profile"
+                            width={100}
+                            height={100}
+                            className='rounded-full'
+                          />
+                        ) : (
+                          <span className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center mr-4">
+                            No Image
+                          </span>
+                        )}
+                        <button
+                          type="button"
+                          onClick={() => document.getElementById('file-input').click()}
+                          className="text-blue-600 hover:underline"
+                        >
+                          Change
+                        </button>
+                      </div>
+                    </div>
                 </div>
                 <ProfileEditForm />
               </div>

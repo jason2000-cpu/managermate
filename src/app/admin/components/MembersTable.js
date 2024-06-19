@@ -50,7 +50,6 @@ function MembersTable({ data }){
               ))}
             </tbody>
           </table>
-          {/* <TaskViewModal isTaskViewModalOpen={isTaskViewModalOpen} handleCloseModal={handleCloseModal}  task={taskInView}/> */}
         </div>
     )
 }

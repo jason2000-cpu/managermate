@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react'
 import { useRouter } from "next/navigation";
+import { useDispatch } from 'react-redux';
+import { loginDispatch } from '@/lib/features/user/userSlice';
 import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/material.css'
 import FloatingLabelInput from "../ui/FloatingLabelInput"
@@ -10,6 +12,7 @@ import CustomBtn from '../ui/CustomBtn';
 
 function SignupForm({ toast }){
     const router = useRouter();
+    const dispatch = useDispatch();
 	const { register } = useUserHook();
 	const [phone, setPhone] = useState('');
 	const [form, setForm] = useState({
@@ -40,8 +43,8 @@ function SignupForm({ toast }){
 		e.preventDefault()
 		console.log(form)
 		const res = register(form)
-		console.log("USER CREATED:::", res.messsage)
         if (res.status == 'success') {
+            dispatch(loginDispatch(res.messsage))
             toast.success("Registration Successfull!")
             router.push(`/${user.id}/dashboard`)
         } else {

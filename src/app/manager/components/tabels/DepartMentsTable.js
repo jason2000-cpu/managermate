@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import DepartmentViewModal from '../modals/DepartmentViewModal';
-import useDepartmentHook from '@/hooks/useDepartmentHook';
 
 function DepartmentsTable({ data }){  
   const [ isDepartmentModalOpen, setDepartmentInViewModalOpen] = useState(false);

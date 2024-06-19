@@ -2,16 +2,17 @@
 
 import React, { useState} from "react"
 import Image from 'next/image'
+import { useAppSelector } from "@/lib/hooks"
+import { selectUser } from "@/lib/features/user/userSlice"
 import Card from "./ui/Card"
 import { todos } from "../../data"
 import useTaskHook from "@/hooks/useTasksHook"
 
 function Todos(){
-    // const [todos, setTodos] = useState([])
     const { getUserTasks } = useTaskHook();
-    // const user = JSON.parse(localStorage.getItem("activeUser"));
+    const user = useAppSelector(selectUser);
 
-    const tasks  = getUserTasks("4");
+    const tasks  = getUserTasks(user.id);
 
     const incompleteTasks = tasks.filter((task) => task.status === "incomplete")
     return (

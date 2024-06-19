@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import TaskViewModal from '../modals/TaskViewModal';
 import useUserHook from '@/hooks/useUserHook';
 
-const TasksTable = ({ data, onActionClick }) => {
+const TasksTable = ({ data }) => {
   const { getUser } = useUserHook();
 
   const [isTaskViewModalOpen, setIsTaskViewModalOpen] = useState(false);

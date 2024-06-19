@@ -1,8 +1,7 @@
 'use client'
 
 import Nav from '@/components/Nav'
-import Image from 'next/image'
-import React, { useState } from 'react'
+import React from 'react'
 import { usePathname } from 'next/navigation'
 
 import { BsFillGridFill } from "react-icons/bs";
@@ -41,7 +40,6 @@ const links = [
 function SideNavigation(){
     const pathname = usePathname();
     const absPath = pathname.split("/")[2]
-    console.log("Absolute Path::", absPath, pathname);
     return (
         <Nav links={links} absPath={ absPath} />
     )

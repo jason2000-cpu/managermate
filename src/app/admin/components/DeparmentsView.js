@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import DepartmentsTable from '@/app/manager/components/tabels/DepartMentsTable';
 import useDepartmentHook from '@/hooks/useDepartmentHook';
 import DepartmentModal from '@/app/manager/components/modals/DepartmentModal';
+
 function DepartmentView(){
 
     const [isDepartmentModalOpen, setDepartmentModalOpen] = useState(false);
@@ -23,13 +24,9 @@ function DepartmentView(){
       <div className="">
         <div className="flex justify-between mx-28 ">
             <div className='flex justify-end w-full space-x-10'>
-            {/* <button onClick={()=>handleOpenModal('task')} className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
-                Create New Task
-            </button> */}
-            <button onClick={()=>handleOpenModal('department')} className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
-                Create New Department
-            </button>
-                {/* <TaskModal isOpen={isTaskModalOpen} handleCloseModal={handleCloseModal} /> */}
+                <button onClick={()=>handleOpenModal('department')} className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
+                    Create New Department
+                </button>
                 <DepartmentModal isOpen={isDepartmentModalOpen} handleCloseModal={handleCloseModal} />
             </div>
         </div>

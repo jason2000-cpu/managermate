@@ -1,20 +1,18 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
-import Counter from '@/components/Counter';
+import { useAppSelector } from '@/lib/hooks';
+import { selectUser } from '@/lib/features/user/userSlice';
 import SideNavigation from './components/SideNavigation';
 import TopBar from '@/components/TopBar';
 import TaskModal from './components/modals/TaskModal';
-import DepartmentModal from './components/modals/DepartmentModal';
 import TasksView from './components/TasksView';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 
 function ManagersPage(){
-    const user = useSelector((state) => state.user);
-    // const user = JSON.parse(localStorage.getItem("activeUser"))
+    const user = useAppSelector(selectUser)
     console.log("LOGGED IN USER:::: ", user)
     const [isTaskModalOpen, setTaskModalOpen ]  = useState(false);
   
@@ -30,8 +28,6 @@ function ManagersPage(){
         <>
             <div className="flex">
                 <SideNavigation />
-                {/* <h1>Active User: {user.userType} {user.FName} {user.SName}</h1>
-                <Counter /> */}
                 <div className="w-full">
                     <TopBar />
                     <div className="flex justify-between mx-28 mt-10">

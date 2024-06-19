@@ -23,18 +23,14 @@ function  DotsMenu(){
   return (
     <div className="relative inline-block text-left">
       <div>
-        <button
-          type="button"
-          className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-md focus:outline-none"
-          id="options-menu"
-          aria-expanded="true"
-          aria-haspopup="true"
-          onClick={toggleMenu}
-        >
-          {/* <span className="sr-only">Open options</span> */}
-          {/* <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M6 10a2 2 0 110-4 2 2 0 010 4zm4-2a2 2 0 100 4 2 2 0 000-4zm4 0a2 2 0 110 4 2 2 0 010-4z" />
-          </svg> */}
+          <button
+            type="button"
+            className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-md focus:outline-none"
+            id="options-menu"
+            aria-expanded="true"
+            aria-haspopup="true"
+            onClick={toggleMenu}
+          >
           <HiDotsHorizontal  size={24}/>
         </button>
       </div>

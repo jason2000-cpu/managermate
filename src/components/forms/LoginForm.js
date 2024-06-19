@@ -6,8 +6,7 @@ import useUserHook from '@/hooks/useUserHook'
 import FloatingLabelInput from '../ui/FloatingLabelInput'
 import CustomBtn from '../ui/CustomBtn'
 import { useSelector, useDispatch } from 'react-redux'
-import { loginDispatch } from '@/lib/slices/userSlice'
-
+import { loginDispatch } from '@/lib/features/user/userSlice'
 
 function LoginForm({ toast }){
 	const { login } = useUserHook();

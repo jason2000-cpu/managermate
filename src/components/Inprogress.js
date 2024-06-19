@@ -2,14 +2,16 @@
 
 import React, { useState} from "react"
 import Image from "next/image"
+import { useAppSelector } from "@/lib/hooks"
+import { selectUser } from "@/lib/features/user/userSlice"
 import Card from "./ui/Card"
 import useTaskHook from "@/hooks/useTasksHook"
 
 function Inprogress(){
     const { getUserTasks } = useTaskHook();
-    // const user = JSON.parse(localStorage.getItem("activeUser"));
+    const user = useAppSelector(selectUser);
 
-    const tasks  = getUserTasks("4");
+    const tasks  = getUserTasks(user.id);
 
     const inprogressTasks = tasks.filter((task) => task.status === "inprogress")
     return (

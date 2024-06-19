@@ -1,7 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
-// import { departments } from '../../../../data';
+import React from 'react'
 import DepartmentsTable from './tabels/DepartMentsTable';
 import useDepartmentHook from '@/hooks/useDepartmentHook';
 
