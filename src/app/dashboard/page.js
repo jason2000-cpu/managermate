@@ -13,10 +13,10 @@ function Dashboard(){
     return (
         <div className="flex">
             <SideNav />
-            <div className="w-full">
+            <div className="w-full space-y-6">
                 <TopBar />
                 <FilterSettings />
-                <div className="flex justify-between mx-28 mt-10">
+                <div className="flex space-x-40 mx-10 h-[83vh]">
                     <Todos />
                     <Inprogress />
                     <Completed />

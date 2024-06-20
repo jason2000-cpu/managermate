@@ -5,11 +5,11 @@ import Input from "../ui/Input"
 
 function ContactForm(){
     const [formData, setFormData] = useState({
-        'FName': null,
-        'SName': null,
-        'phone': null,
-        'email': null,
-        'messagebody': null
+        'FName': '',
+        'SName': '',
+        'phone': '',
+        'email': '',
+        'messagebody': ''
     })
 
     const handleChange = (e) =>{

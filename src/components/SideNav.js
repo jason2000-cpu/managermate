@@ -9,7 +9,10 @@ import { HiUsers } from "react-icons/hi2";
 import { IoMdSettings } from "react-icons/io";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { BsFillGridFill } from "react-icons/bs";
+import { LuLogOut } from "react-icons/lu";
+
 import Nav from './Nav';
+import LogoutBtn from './ui/LogoutBtn';
 
 
 
@@ -46,7 +49,9 @@ function SideNav(){
     const pathname = usePathname();
     const absPath = pathname.split("/")[2]
     return (
-        <Nav links={links} absPath={absPath} />
+        <div>
+            <Nav links={links} absPath={absPath} />
+        </div>
     )
 }
 

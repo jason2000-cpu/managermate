@@ -9,8 +9,8 @@ import { FaLinkedinIn } from "react-icons/fa";
 export default function ContactSection(){
     return (
         <section id='contact' className="my-10">
-            <h1 className="font-thin text-3xl">Contacts</h1>
-            <div className='flex space-x-10 my-10'>
+            <h1 className="text-3xl font-light">Contacts Us</h1>
+            <div className='flex space-x-4 my-10'>
                 <div className='border w-1/2 px-10 pt-10 shadow-lg'>
                     <span className='font-extrabold text-2xl'>Write To Us</span>
                     <ContactForm />

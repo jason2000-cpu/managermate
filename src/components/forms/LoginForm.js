@@ -2,20 +2,21 @@
 
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { toast } from 'react-toastify'
 import useUserHook from '@/hooks/useUserHook'
 import FloatingLabelInput from '../ui/FloatingLabelInput'
 import CustomBtn from '../ui/CustomBtn'
 import { useSelector, useDispatch } from 'react-redux'
 import { loginDispatch } from '@/lib/features/user/userSlice'
 
-function LoginForm({ toast }){
+function LoginForm(){
 	const { login } = useUserHook();
 	const router = useRouter()
 	const dispatch = useDispatch();
 
 	const [form, setForm] = useState({
-		"username": null,
-		"password": null
+		"username": '',
+		"password": ''
 	})
 
 	const handleChange = (e) => {
@@ -32,7 +33,6 @@ function LoginForm({ toast }){
 		if (res.status === 'Success') {
 			dispatch(loginDispatch(res.message))
 			toast.success("Login Successfull!")
-			console.log("User Type:::",res.message.userType)
 			switch (res.message.userType){
 				case "admin":
 					router.push("/admin")
@@ -49,7 +49,7 @@ function LoginForm({ toast }){
 
 	}
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-4 w-full">
             <FloatingLabelInput
                 className="cursor-pointer"
                 label="username/email"

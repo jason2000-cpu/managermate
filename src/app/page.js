@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
         <Navbar />
-        <div className="px-10 pt-16">
+        <div className="px-10 pt-16 space-y-28">
           <BannerSection />
           <AboutSection />
           <ContactSection />

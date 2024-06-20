@@ -16,12 +16,12 @@ function SignupForm({ toast }){
 	const { register } = useUserHook();
 	const [phone, setPhone] = useState('');
 	const [form, setForm] = useState({
-		"FName": null,
-		"SName": null,
-		"email": null,
+		"FName": '',
+		"SName": '',
+		"email": '',
 		"phone": "+254",
-		"password": null,
-		"Cpassword": null
+		"password": '',
+		"Cpassword": ''
 	})
 
 

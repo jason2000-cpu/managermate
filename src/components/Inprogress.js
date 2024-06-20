@@ -16,7 +16,7 @@ function Inprogress(){
     const inprogressTasks = tasks.filter((task) => task.status === "inprogress")
     return (
         <div className="w-[24rem] h-[82vh]">
-            <h1 className="text-xl text-white rounded font-bold  flex justify-center bg-[#083778]">In progress</h1>
+            <h1 className="text-xl text-white rounded font-bold border flex justify-center items-center bg-[#083778] h-9">In Progress</h1>
             <div className="hide-scrollbar overflow-auto h-[78vh] pt-4">
             { inprogressTasks.length <= 0 ? (
                     <div className="flex flex-col justify-center  items-center h-96">

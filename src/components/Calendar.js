@@ -11,7 +11,7 @@ function Cal({ events }){
   const [hoveredEvent, setHoveredEvent] = useState(null);
 
   return (
-    <div className="relative h-[90vh] p-4">
+    <div className="relative h-[90vh] p-10">
       <Calendar
         localizer={localizer}
         events={events}

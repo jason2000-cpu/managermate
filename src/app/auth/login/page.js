@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // icons
@@ -16,18 +16,23 @@ import LoginForm from "@/components/forms/LoginForm";
 export default function Login(){
 	return (
 		<>
-			<div className="ml-10">
-				<div className="mt-4">
-					<Image src={'/static/images/logo2.png'} height={100} width={100} alt={'logo'} />
+			<div className="mx-5">
+				<div className="relative w-24 h-24">
+					<Image 
+						src={'/static/images/logo2.png'}  
+						alt={'logo'}
+						fill
+						className="object-contain"
+						/>
 				</div>
 				<div className="flex justify-evenly">
-					<div className="flex flex-col items-center justify-center  space-y-10">
+					<div className="flex flex-col items-center justify-center  space-y-10 w-[25rem]">
 						<div className="flex flex-col items-center space-y-2">
 							<span className="text-3xl font-extrabold">Welcome Back!</span>
 							<span className="text-sm">Please Enter Your Email and Password to Login</span>
 						</div>
-						<div>
-							<LoginForm  toast={toast}/>
+						<div className="w-full">
+							<LoginForm />
 							<div className="flex justify-end mt-2">
 								<Link href={'/'}>Forgot Password ?</Link>
 							</div>
@@ -48,7 +53,14 @@ export default function Login(){
 							</div>
 					</div>
 					<div className="flex flex-col items-center space-y-2">
-						<Image src={'/static/images/banner1.jpg'} width={500} height={500} alt="login banner" />
+						<div className="relative w-[40rem] h-[37rem]">
+							<Image 
+								src={'/static/images/banner2.jpg'}
+								alt="login banner"
+								fill
+								className="object-contain"
+								/>
+						</div>
 						<span className="">Don&apos;t have an account ? <Link href={'/auth/signup'} className=" font-black">Signup</Link></span>
 					</div>
 				</div>

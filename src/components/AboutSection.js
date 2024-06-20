@@ -6,11 +6,11 @@ import { GiCheckMark } from "react-icons/gi";
 export default function AboutSection(){
     return (
         <section id="about" className="space-y-4">
-            <h1 className="font-thin text-3xl">About</h1>
+            <h1 className="text-3xl font-light">About</h1>
             <div className="mx-16">
                 <div className="flex space-x-56 justify-center h-96">
-                    <div className="flex flex-col justify-around">
-                        <div className="flex flex-col space-y-6 h-1/2">
+                    <div className="flex flex-col space-y-16">
+                        <div className="flex flex-col space-y-4">
                             <h1 className="text-xl font-semibold">Welcome to Manager Mate</h1>
                             <span>Your ultimate solution for seamless and efficient line management.</span>
                             <span>Our platform is designed to help you streamline processes, optimize workflows,<br /> and enhance productivity.</span> 
@@ -23,7 +23,7 @@ export default function AboutSection(){
                     </div>
                     <div>
                         <h1 className="font-semibold text-lg">Why Choose Manager Mate</h1>
-                        <div className="space-y-10 mt-6">
+                        <div className="flex flex-col justify-between h-64 mt-6">
                             <span className="flex items-center space-x-2">
                                 <GiCheckMark size={30} />
                                 <h1>User-Friendly Interface: <br /> Navigate with ease and get things done faster.</h1>
@@ -40,7 +40,6 @@ export default function AboutSection(){
                                 <GiCheckMark size={30} />
                                 <h1>Collaboration Made Easy: <br /> Improve communication and teamwork with integrated collaboration tools.</h1>
                             </span>
-
                         </div>
                     </div>
                 </div>

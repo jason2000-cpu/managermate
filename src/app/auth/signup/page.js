@@ -14,11 +14,16 @@ export default function Signup(){
 	return (
 		<>
 			<div className="ml-10">
-				<div className="mt-4">
-					<Image src={'/static/images/logo2.png'} height={100} width={100} alt={'logo'} />
+				<div className="relative w-24 h-24">
+					<Image 
+						src={'/static/images/logo2.png'}  
+						alt={'logo'}
+						fill
+						className="object-contain"
+						/>
 				</div>
 				<div className="flex justify-evenly">
-					<div className="flex flex-col items-center justify-center  space-y-5">
+					<div className="flex flex-col items-center space-y-5 h-auto mt-24">
 						<div className="flex flex-col items-center space-y-2">
 							<span className="text-3xl font-extrabold">Welcome!</span>
 							<span className="text-sm">Please Enter Your details to Signup</span>
@@ -40,12 +45,18 @@ export default function Signup(){
                         </div>
 					</div>
 					<div className="flex  flex-col items-center">
-                        <Image src={'/static/images/banner3.jpg'} width={700} height={700} alt="login banner"  />
+                        <div className="relative w-[40rem] h-[40rem]">
+							<Image 
+								src={'/static/images/banner3.jpg'}
+								fill
+								alt="login banner" 
+								priority={true} 
+								className="object-contain"  	
+								/>
+						</div>
 						<span>Already have an account ? <Link href={'/auth/login'} className="font-black">Login</Link></span>
 					</div>
 				</div>
-
-				{/* <Footer /> */}
 			</div>
 			<ToastContainer position="top-right" />
 		</>
