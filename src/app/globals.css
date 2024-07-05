@@ -11,3 +11,8 @@
     -ms-overflow-style: none;  /* Internet Explorer */
     scrollbar-width: none;  /* Firefox */
 }
+
+@font-face {
+    font-family: "edu";
+    src: url("/static/fonts/EduQLDBeginner-VariableFont_wght.ttf");
+}

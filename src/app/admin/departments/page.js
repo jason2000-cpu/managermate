@@ -4,9 +4,6 @@ import React from 'react'
 import DepartmentView from '../components/DeparmentsView';
 import SideNavigation from '../components/SideNavigation';
 import TopBar from '@/components/TopBar';
-import { ToastContainer } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
-
 
 function AdminDepartments(){
     return (
@@ -22,10 +19,6 @@ function AdminDepartments(){
                     </div>
                 </div>
             </div>
-            <ToastContainer 
-                position='top-right'
-                theme='dark'
-            />
         </>
     )
 }

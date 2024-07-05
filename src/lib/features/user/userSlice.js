@@ -6,17 +6,17 @@ const initialState = {
 }
 
 const loadState = () => {
-    if (typeof window !== undefined) {
-        try{
-            const serializedUser = localStorage.getItem("activeUser");
-            if (serializedUser === null){
-                return initialState;
+        if (typeof window !== undefined) {
+            try {
+                const serializedUser = localStorage.getItem("activeUser");
+                if (serializedUser === null) {
+                    return initialState
+                }
+                return JSON.parse(serializedUser)
+            } catch(err){
+                return initialState
             }
-            return JSON.parse(serializedUser)
-        } catch(err){
-            return initialState
         }
-    }
 }
 
 export const userSlice = createAppSlice({
@@ -25,6 +25,7 @@ export const userSlice = createAppSlice({
     reducers: (create) => ({
         loginDispatch: create.reducer((state, action) => {
             state.value = action.payload;
+            console.log("LOGIN DISPATCH:::", action.payload)
             localStorage.setItem("activeUser", JSON.stringify(action.payload))
         }),
         logoutDispatch: create.reducer((state) =>{

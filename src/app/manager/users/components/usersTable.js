@@ -8,13 +8,15 @@ function UsersTable({ data }){
   const { deleteUser } = useUserHook()
 
   const handleDelete = (user)=>{
-    alert( user.id)
-    const resp = deleteUser(user.id)
-    if (resp.status === 'Success'){
-      toast.success(resp.message)
-    } else {
-      toast.error(resp.message)
-    }
+    console.log("USER ID::::",user)
+    deleteUser(user.id)
+    .then(response => {
+      if (response.status === 'Success'){
+        toast.success(response.message)
+      } else {
+        toast.error(response.message)
+      }
+    })
   }
   return (
       <div className="overflow-x-auto">

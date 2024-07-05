@@ -1,30 +1,20 @@
 'use client'
 
 import React, { useState } from 'react'
-import SideNavigation from '../components/SideNavigation';
-import TopBar from '@/components/TopBar';
 import UsersTable from './components/usersTable';
-import { users } from "../../../../data";
-import { ToastContainer } from 'react-toastify';
+import useUserHook from '@/hooks/useUserHook';
 
 function UsersPage(){
+    const { users } = useUserHook();
+
+    const emmployees = users.filter(user => user.userType === 'user');
 
     return (
         <>
-            <div className="flex">
-                <SideNavigation />
-                <div className="w-full">
-                    <TopBar />
-                    <div className="mx-10 mt-10 space-y-5">
-                        <span className='font-bold text-xl'>Users</span>
-                        <UsersTable data={users} />
-                    </div>
-                </div>
+            <div className="mx-10 mt-10 space-y-5">
+                <span className='font-bold text-xl'>Users</span>
+                <UsersTable data={emmployees} />
             </div>
-            <ToastContainer 
-                position='top-right'
-                theme='dark'
-            />
         </>
     )
 }

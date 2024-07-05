@@ -29,14 +29,16 @@ function DepartmentViewModal({ isOpen, handleCloseModal, department }) {
         })
     }
 
-    const handleDepartmentDelete = async () =>{
-        const resp = await deleteDepartment(department)
-        console.log("RESPONSE ON DEPARTMENT UPDATE:::", resp)
-        if (resp.status === "Success"){
-            toast.success(resp.message)
-        } else {
-            toast.error(resp.message)
-        }
+    const handleDepartmentDelete =  () =>{
+        deleteDepartment(department)
+        .then(response => {
+            console.log("DELETE REPONSE:::",response)
+            if (response.status === 'Success') {
+                toast.success(response.message)
+            } else {
+                toast.error(response.message)
+            }
+        })
 
         handleCloseModal();
     }

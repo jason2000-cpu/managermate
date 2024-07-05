@@ -1,24 +1,19 @@
 'use client'
 
 import React from 'react';
+import { useAppSelector } from '@/lib/hooks';
+import { selectUser } from '@/lib/features/user/userSlice';
 import Cal from '@/components/Calendar';
-import SideNav from '@/components/SideNav';
-import TopBar from '@/components/TopBar';
 import useTaskHook from "@/hooks/useTasksHook"
 
 function MyCalendar() {
   const { getUserTasks } = useTaskHook();
+  const user = useAppSelector(selectUser);
 
-  const tasks  = getUserTasks('4');
+  const tasks  = getUserTasks(user.id);
   return (
     <div>
-        <div className="flex">
-            <SideNav />
-            <div className="w-full">
-              <TopBar />
-              <Cal events={tasks} />
-            </div>
-        </div>
+      <Cal events={tasks} />
     </div>
 
   );

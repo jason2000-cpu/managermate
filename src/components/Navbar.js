@@ -26,7 +26,7 @@ const links = [
 ]
 function Navbar() {
   return (
-    <div className='flex justify-between px-16  items-center py-2 border-b-2 shadow-lg shadow-[#619ff527] fixed w-full bg-white'>
+    <div className='flex justify-between px-16  items-center py-2 border-b-2 shadow-lg shadow-[#619ff527] fixed w-full bg-white z-10'>
         <div>
             <Image 
                 src={'/static/images/logo1.png'} 

@@ -20,7 +20,7 @@ function Todos(){
             <h1 className="text-xl text-white rounded font-bold border flex justify-center items-center bg-[#083778] h-9">Todos</h1>
             <div className="hide-scrollbar overflow-auto h-[78vh] pt-4">
             { incompleteTasks.length <= 0 ? (
-                    <div className="flex justify-center items-center h-96">
+                    <div className="flex flex-col justify-center  items-center h-96">
                         <Image src={"/static/images/empty.jpg"} alt="Empty Tasks" width={300} height={300} />
                         <span>Empty</span>
                     </div>

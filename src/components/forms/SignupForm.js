@@ -3,6 +3,8 @@
 import React, { useState } from 'react'
 import { useRouter } from "next/navigation";
 import { useDispatch } from 'react-redux';
+import { toast } from "react-toastify";
+
 import { loginDispatch } from '@/lib/features/user/userSlice';
 import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/material.css'
@@ -10,7 +12,7 @@ import FloatingLabelInput from "../ui/FloatingLabelInput"
 import useUserHook from "@/hooks/useUserHook";
 import CustomBtn from '../ui/CustomBtn';
 
-function SignupForm({ toast }){
+function SignupForm(){
     const router = useRouter();
     const dispatch = useDispatch();
 	const { register } = useUserHook();
@@ -39,17 +41,18 @@ function SignupForm({ toast }){
 
 	}
 
-	const handleSubmit = (e) => {
+	const handleSubmit =  (e) => {
 		e.preventDefault()
-		console.log(form)
-		const res = register(form)
-        if (res.status == 'success') {
-            dispatch(loginDispatch(res.messsage))
-            toast.success("Registration Successfull!")
-            router.push(`/${user.id}/dashboard`)
-        } else {
-            toast.error("User Registration Failed")
-        }
+		register(form)
+        .then(response => {
+            if (response.status === 'Success') {
+                dispatch(loginDispatch(response.message))
+                toast.success("Registration Successfull!")
+                router.push('/dashboard')
+            } else {
+                toast.error("User Registration Failed")
+            }
+        })
 	}
     return (
         <div>

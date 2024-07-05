@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
-// const baseUrl = "http://localhost:3001";
-const baseUrl = "https://managermate-api.vercel.app"
+const baseUrl = "http://localhost:3001";
+// const baseUrl = "https://managermate-api.vercel.app"
 
 function useDepartmentHook(){
     const [ departments, setDepartments ] = useState([]);
@@ -80,23 +80,26 @@ function useDepartmentHook(){
             res = {status: "Failure", message: "An Error Occured While Updating Department"}
         }
 
-        return res
+        return res;
 
     }
 
-    async function deleteDepartment(departmentId){
-        const newDepartments = departments.filter(department => department.id !== departmentId);
+    async function deleteDepartment(departmentDet){
+        const newDepartments = departments.filter(department => department.id !== departmentDet.id);
 
         setDepartments(newDepartments);
+        let res = {};
         try {
-            const response = await axios.delete(`${baseUrl}/departments/${departmentId}`)
-
-            if (response == 200){
+            const response = await axios.delete(`${baseUrl}/departments/${departmentDet.id}`)
+            console.log("RESPONSE ON DELETE::::", response)
+            if (response.status === 200){
                 res = {status: "Success", message: "Department Deleted Successfuly."}
             }
         } catch(err){
             res = {status: "Failure", message: "An Error Occured While Deleting Department"}
         }
+
+        return res;
     }
 
 

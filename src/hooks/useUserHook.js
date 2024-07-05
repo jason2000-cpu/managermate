@@ -8,9 +8,9 @@ import { users as usersData } from "../../data";
 import { useDispatch } from "react-redux";
 
 
-// const baseUrl = "http://localhost:3001"
+const baseUrl = "http://localhost:3001"
 
-const baseUrl = "https://managermate-api.vercel.app"
+// const baseUrl = "https://managermate-api.vercel.app"
 
 function useUserHook (){
     const [ users, setUsers ] = useState([]);
@@ -53,7 +53,7 @@ function useUserHook (){
         return res;
     }
 
-    function register(formData){
+    async function register(formData){
         const newUser = {
             ...formData,
             id: uuidv4(),
@@ -66,7 +66,7 @@ function useUserHook (){
 
         try {
             setUsers({...users, newUser});
-            const response = axios.post(`${baseUrl}/users`, newUser)
+            const response = await axios.post(`${baseUrl}/users`, newUser)
 
             if (response.status === 201){
                 res = {status: "Success", message: newUser}
@@ -96,7 +96,7 @@ function useUserHook (){
 
     async function deleteUser(userId){
         setUsers(users.map(user => user.id !== userId))
-
+        console.log("USER TO DELETE ::::", userId)
         let res = {}
         try {
             const response = await axios.delete(`${baseUrl}/users/${userId}`)

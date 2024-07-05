@@ -20,14 +20,8 @@ const links =[
     {
         id: 1,
         name: "Dashboard",
-        path: "/",
+        path: "/dashboard",
         icon: <BsFillGridFill size={20}/>
-    },
-    {
-        id: 2,
-        name: "Paticipants",
-        path: "/dashboard/participants",
-        icon: <HiUsers size={20} />
     },
     {
         id: 3,

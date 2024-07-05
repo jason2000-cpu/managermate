@@ -3,21 +3,17 @@
 import SideNav from "@/components/SideNav";
 import TopBar from "@/components/TopBar";
 
+
 function DashboardLayout({children}){
-    <div>
+    return (
         <div className="flex">
             <SideNav />
-            <div className="w-full">
+            <div className="w-full space-y-6">
                 <TopBar />
-                <FilterSettings />
-                <div className="flex justify-between mx-28 mt-10">
-                    <Todos />
-                    <Inprogress />
-                    <Completed />
-                </div>
+                { children }
             </div>
         </div>
-    </div>
+    )
 }
 
 export default DashboardLayout;
