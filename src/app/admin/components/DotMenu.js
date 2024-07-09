@@ -1,17 +1,26 @@
 'use client'
 
 import React, { useState } from 'react';
+import useUserHook from '@/hooks/useUserHook';
 import { HiDotsHorizontal } from "react-icons/hi";
 
-function  DotsMenu(){
+function  DotsMenu({ row }){
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { deleteUser } = useUserHook();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleDelete = () => {
-    alert('Delete action');
+  const handleDelete = async () => {
+    alert('Delete action on ', row.FName);
+    console.log(row.id)
+    const res = await deleteUser(row.id)
+    if (res.status === 'Success'){
+      alert('User Deleted!')
+    } else {
+      alert("An Error Occured While Deleting User!")
+    }
     setIsMenuOpen(false);
   };
 

@@ -45,7 +45,7 @@ function MembersTable({ data }){
                     </div>
                   </td>
                   <td className="py-2 px-4 border-b text-center">{user.userType}</td>
-                  <td className="py-2 px-4 border-b text-center"><DotsMenu /></td>
+                  <td className="py-2 px-4 border-b text-center"><DotsMenu  row={user} /></td>
                 </tr>
               ))}
             </tbody>
