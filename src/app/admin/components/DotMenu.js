@@ -3,29 +3,39 @@
 import React, { useState } from 'react';
 import useUserHook from '@/hooks/useUserHook';
 import { HiDotsHorizontal } from "react-icons/hi";
+import { toast } from 'react-toastify';
 
 function  DotsMenu({ row }){
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { deleteUser } = useUserHook();
+  const { deleteUser, updateUser } = useUserHook();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleDelete = async () => {
-    alert('Delete action on ', row.FName);
-    console.log(row.id)
     const res = await deleteUser(row.id)
     if (res.status === 'Success'){
-      alert('User Deleted!')
+      toast.success('User Deleted!')
     } else {
-      alert("An Error Occured While Deleting User!")
+      toast.error("An Error Occured While Deleting User!")
     }
     setIsMenuOpen(false);
   };
 
-  const handlePromote = () => {
-    alert('Promote action');
+  const handlePromote = async() => {
+    if (row.userType === 'user') {
+      const updatedUser = {...row, userType: 'manager'}
+      const res = await updateUser(row.id, updatedUser)
+    
+      if (res.status === 'Success') {
+        toast.success('User Promoted to Manager')
+      } else {
+        toast.error('An Error Occured While Promoting User')
+      }
+    }
+
+
     setIsMenuOpen(false);
   };
 
