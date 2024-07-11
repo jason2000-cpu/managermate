@@ -1,19 +1,32 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useAppSelector } from '@/lib/hooks';
-import { selectUser } from '@/lib/features/user/userSlice';
-
-import TaskModal from './components/modals/TaskModal';
-import TasksView from './components/TasksView';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import TaskModal from './components/modals/TaskModal';
+import useTaskHook from '@/hooks/useTasksHook';
+import TasksTable from './components/tabels/TasksTable';
+import PageTitle from '@/components/ui/PageTitle';
+import Filter from './components/Filter';
+
 
 function ManagersPage(){
-    const user = useAppSelector(selectUser)
-    console.log("LOGGED IN USER:::: ", user)
     const [isTaskModalOpen, setTaskModalOpen ]  = useState(false);
+    const [filter, setFilter] = useState('all');
+    const { tasks }  = useTaskHook();
+
+    const filterOptions = ['all', 'inprogress', 'complete'];
+
+
+    const handleActionClick = (task) => {
+        console.log('Action clicked for task:', task);
+      };
+
+    const handleChange = (e) =>{
+        setFilter(e.target.value)
+    }
+    const filteredTasks = filter !== 'all' ? tasks.filter(task =>  task.status === filter) : tasks 
   
     const handleOpenModal = () => {
         setTaskModalOpen(true)
@@ -25,20 +38,22 @@ function ManagersPage(){
   
     return (
         <>
-            <div className="flex justify-between mx-28 mt-10">
-                <div className='flex justify-end w-full space-x-10'>
-                <button onClick={()=>handleOpenModal('task')} className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
-                    Create New Task
-                </button>
-                {/* <button onClick={()=>handleOpenModal('department')} className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
-                    Create New Department
-                </button> */}
-                    <TaskModal isOpen={isTaskModalOpen} handleCloseModal={handleCloseModal} toast={toast} />
-                    {/* <DepartmentModal isOpen={isDepartmentModalOpen} handleCloseModal={handleCloseModal} /> */}
+            <div className="mx-20 mt-4">
+                <PageTitle title={'Tasks'} />
+                <div className='flex justify-between items-center  w-full'>
+                    <Filter filter={filter} handleChange={handleChange} filterOptions={filterOptions} />
+                    <div className=''>
+                        <button onClick={()=>handleOpenModal('task')} className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
+                            Create New Task
+                        </button>
+                        <TaskModal isOpen={isTaskModalOpen} handleCloseModal={handleCloseModal} toast={toast} />
+                    </div>
                 </div>
             </div>
             <div className=' mx-4'>
-                <TasksView />
+                <div className="p-6">
+                    <TasksTable data={filteredTasks} onActionClick={handleActionClick} />
+                </div>
             </div>
         </>
     )
