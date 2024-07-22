@@ -20,7 +20,7 @@ function TopBar(){
     }
     
     return (
-        <div className='border px-10 flex justify-between w-full py-2 shadow-md dark:bg-gray-500 dark:border-none dark:text-[#ffffff8f]'>
+        <div className='px-10 flex justify-between w-full py-2 shadow-md dark:border-b-2 dark:border-gray-600 dark:shadow-xl'>
             <div className='flex space-x-2'>
                 <BsPersonWorkspace size={24} color='#083778' />
                 <span className='font-bold text-[#083778]'>

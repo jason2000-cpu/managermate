@@ -6,7 +6,7 @@ import TopBar from "@/components/TopBar";
 
 function DashboardLayout({children}){
     return (
-        <div className="flex dark:bg-gray-500 dark:text-[#ffffff8f]">
+        <div className="flex dark:bg-black dark:text-[#ffffff8f]">
             <SideNav />
             <div className="w-full space-y-6">
                 <TopBar />
