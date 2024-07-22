@@ -16,7 +16,7 @@ function Completed(){
     const completedTasks = tasks.filter((task) => task.status === "complete")
     return (
         <div className="w-[24rem] h-[82vh]">
-            <h1 className="text-xl text-white rounded font-bold border flex justify-center items-center bg-[#083778] h-9">Completed</h1>
+            <h1 className="text-xl text-white rounded font-bold border flex justify-center items-center bg-[#083778] h-9 dark:border-none">Completed</h1>
             <div className="hide-scrollbar overflow-auto h-[78vh] pt-4">
                 { completedTasks.length <= 0 ? (
                     <div className="flex flex-col justify-center  items-center h-96">

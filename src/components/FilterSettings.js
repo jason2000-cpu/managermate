@@ -9,11 +9,11 @@ import { TbCalendarClock } from "react-icons/tb";
 function FilterSettings(){
     return (
         <div className='flex mx-10 my-4 space-x-6'>
-            <div className='flex space-x-2  border rounded-full bg-gray-200 py-1 px-3'>
+            <div className='flex space-x-2  border rounded-full bg-gray-200 py-1 px-3 dark:border-none dark:text-black'>
                 <IoFilter size={24} />
                 <span>Filter</span>
             </div>
-            <div className='flex space-x-2 border rounded-full bg-gray-200 p-1 px-3'>
+            <div className='flex space-x-2 border rounded-full bg-gray-200 p-1 px-3 dark:border-none dark:text-black'>
                 <TbCalendarClock size={24} />
                 <span>Due Date</span>
             </div>

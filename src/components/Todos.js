@@ -17,7 +17,7 @@ function Todos(){
     const incompleteTasks = tasks.filter((task) => task.status === "incomplete")
     return (
         <div className="w-[24rem] h-[82vh]">
-            <h1 className="text-xl text-white rounded font-bold border flex justify-center items-center bg-[#083778] h-9">Todos</h1>
+            <h1 className="text-xl text-white rounded font-bold border flex justify-center items-center bg-[#083778] h-9 dark:border-none dark:text-[#ffffffd2]">Todos</h1>
             <div className="hide-scrollbar overflow-auto h-[78vh] pt-4">
             { incompleteTasks.length <= 0 ? (
                     <div className="flex flex-col justify-center  items-center h-96">

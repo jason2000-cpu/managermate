@@ -24,7 +24,7 @@ function Card({data}){
         updateTask(data.id, updatedTask)
     }
     return (
-        <div className='border rounded-lg px-4 py-2 shadow-lg flex flex-col space-y-6 mx-2 mb-4'>
+        <div className='border rounded-lg px-4 py-2 shadow-lg flex flex-col space-y-6 mx-2 mb-4 dark:border-[#08377848]'>
             <div className='flex justify-between items-center font-bold'>
                 <h1 className='text-xl font bold'>{data.title}</h1>
                 <span className={`h-10 w-10 border bg-[${data.color}]`}></span>
