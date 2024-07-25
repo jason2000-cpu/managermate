@@ -11,9 +11,9 @@ import TopBar from "@/components/TopBar";
 
 function Dashboard(){
     return (
-        <div>
+        <div className="mx-10">
             <FilterSettings />
-            <div className="flex space-x-40 mx-10 h-[83vh]">
+            <div className="flex w-full justify-between h-[83vh]">
                 <Todos />
                 <Inprogress />
                 <Completed />

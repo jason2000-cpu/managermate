@@ -7,7 +7,7 @@ const options = ["incomplete", "inprogress", "complete"];
 function SelectInput({ value, handleChange }){
     return (
         <select
-            className='rounded h-8 w-32 dark:text-gray-600 bg-black outline-none'
+            className='rounded h-8 w-32 dark:text-gray-300 dark:bg-gray-500 outline-none bg-transparent'
             value={value}
             onChange={handleChange}
         >

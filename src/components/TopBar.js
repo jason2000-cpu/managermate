@@ -15,7 +15,6 @@ function TopBar(){
     //     alert("Current Theme", theme)
     // }
     const toggleTheme = () =>{
-        alert("Current Theme", theme)
         document.documentElement.classList.toggle('dark');
     }
     
@@ -28,9 +27,9 @@ function TopBar(){
                 </span>
             </div>
             <div className='flex space-x-4'>
-                <div>
-                    <input className=' w-[18rem] border-2 border-[#083778] rounded px-2 h-8' type='text' placeholder='Search anything..'/>
-                    <IoSearch size={24}  color='#083778' className='absolute top-3 right-24'/>
+                <div className='flex'>
+                    <input className=' w-[18rem] border-2 border-[#083778] rounded px-2 h-8 dark:bg-gray-500' type='text' placeholder='Search anything..'/>
+                    <IoSearch size={24}  color='#083778' className='absolute top-3 right-32'/>
                 </div>
                 <IoNotifications size={24}  className='cursor-pointer'/>
                 {

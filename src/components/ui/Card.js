@@ -24,10 +24,10 @@ function Card({data}){
         updateTask(data.id, updatedTask)
     }
     return (
-        <div className='border rounded-lg px-4 py-2 shadow-lg flex flex-col space-y-6 mx-2 mb-4 dark:border-[#08377848]'>
+        <div className='border rounded-lg px-4 py-2 shadow-lg flex flex-col space-y-6 mx-2 mb-4 dark:border-[#08377848] dark:bg-gray-500'>
             <div className='flex justify-between items-center font-bold'>
                 <h1 className='text-xl font bold'>{data.title}</h1>
-                <span className={`h-10 w-10 border bg-[${data.color}]`}></span>
+                <span className={`h-10 w-10 bg-[${data.color}]`}></span>
             </div>
             <div className='flex justify-between'>
                 <div className='flex space-x-2'>
@@ -41,7 +41,7 @@ function Card({data}){
             </div>
             <div className='flex'>
                 <div className='flex items-center space-x-2'>
-                    <div className='border bg-[#083778] rounded-full p-1'>
+                    <div className='bg-[#083778] rounded-full p-1'>
                         <RiUser2Fill size={20}  color={'white'} />
                     </div>
                     <span>Assinged By {data.assigned_by}</span>
