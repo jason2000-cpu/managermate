@@ -20,7 +20,7 @@ function Inprogress(){
             <div className="hide-scrollbar overflow-auto h-[78vh] pt-4">
             { inprogressTasks.length <= 0 ? (
                     <div className="flex flex-col justify-center  items-center h-96">
-                        <Image src={"/static/images/empty.jpg"} alt="Empty Tasks" width={300} height={300} />
+                        <Image src={"/static/images/empty.png"} alt="Empty Tasks" width={300} height={300} />
                         <span>Empty</span>
                     </div>
                 ) : (

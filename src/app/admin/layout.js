@@ -7,7 +7,7 @@ import SideNavigation from "./components/SideNavigation";
 function AdminLayout({ children }){
     return (
         <>
-        <div className="flex">
+        <div className="flex dark:bg-black dark:text-[#ffffff8f]">
             <SideNavigation />
             <div className="w-full">
             <TopBar />
