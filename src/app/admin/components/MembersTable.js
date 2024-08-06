@@ -8,14 +8,14 @@ function MembersTable({ data }){
 
     return (
         <div className="">
-          <table className="min-w-full bg-white">
+          <table className="min-w-full bg-white dark:bg-gray-700">
             <thead>
               <tr>
-                <th className="py-2 px-4 bg-gray-100 border-b">Employee</th>
-                <th className="py-2 px-4 bg-gray-100 border-b">Department</th>
-                <th className="py-2 px-4 bg-gray-100 border-b">Availability</th>
-                <th className="py-2 px-4 bg-gray-100 border-b">Role</th>
-                <th className="py-2 px-4 bg-gray-100 border-b">Action</th>
+                <th className="py-2 px-4 bg-gray-100 border-b dark:border-b-gray-500 dark:bg-gray-500">Employee</th>
+                <th className="py-2 px-4 bg-gray-100 border-b dark:border-b-gray-500 dark:bg-gray-500">Department</th>
+                <th className="py-2 px-4 bg-gray-100 border-b dark:border-b-gray-500 dark:bg-gray-500">Availability</th>
+                <th className="py-2 px-4 bg-gray-100 border-b dark:border-b-gray-500 dark:bg-gray-500">Role</th>
+                <th className="py-2 px-4 bg-gray-100 border-b dark:border-b-gray-500 dark:bg-gray-500">Action</th>
               </tr>
             </thead>
             <tbody>
