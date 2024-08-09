@@ -1,44 +1,4 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "FName": "Jackson",
-            "SName": "Mwangi",
-            "eamail": "jackson@gmail.com",
-            "phone": "+254797955092",
-            "userType": "admin",
-            "password": "12345"
-        },
-        {
-            "id": 2,
-            "FName": "Alice",
-            "SName": "Thompson",
-            "email": "alicethompson@gmail.com",
-            "phone":"+254792945092",
-            "userType": "manager",
-            "password":"12345"
-        },
-        {
-            "id": 3,
-            "FName": "Peter",
-            "SName": "Tate",
-            "email": "petertate@gmail.com",
-            "phone":"+254792945126",
-            "userType": "user",
-            "password": "12345"
-        },
-        {
-            "id": 3,
-            "FName": "Ann",
-            "SName": "Nyaboke",
-            "email": "annnyabs@gmail.com",
-            "phone":"+254792945321",
-            "assignedTask": false ,
-            "department": "Finance",
-            "userType": "user",
-            "password": "12345"
-        }
-    ],
 
     "departments": [
         {
@@ -76,64 +36,6 @@
             "contactEmail": "info@salesmanagermate",
             "date_created": "2024-05-02",
             "emmployees": [3]
-        }
-    ],
-
-    "tasks":  [
-        {
-            "id": 1,
-            "title": "User Interface Design",
-            "start": "2024-06-07",
-            "end": "2024-06-10",
-            "assigned_to": "Peter Tate",
-            "assigned_by": "Admin Jackson",
-            "description":"Using Your preffered tool  create an intuitive UI",
-            "color": "'#f56954'",
-            "status": "complete"
-        },
-        {
-            "id": 2,
-            "title": "Frontend Development",
-            "start": "2024-06-10",
-            "end": "2024-06-13",
-            "assigned_to": "Peter Tate",
-            "assigned_by": "Admin Jackson",
-            "description":"Following The UI created earlier  develope the frontend",
-            "color": "#f39c12",
-            "status": "complete"
-        },
-        {
-            "id": 3,
-            "title": "API Development",
-            "start": "2024-06-13",
-            "end": "2024-06-15",
-            "assigned_to": "Peter Tate",
-            "assigned_by": "Admin Jackson",
-            "description":"Using Flask design and develope an API",
-            "color": "#00a65a",
-            "status": "inprogress"
-        },
-        {
-            "id": 4,
-            "title": "API Intergration",
-            "start": "2024-06-15",
-            "end": "2024-06-18",
-            "assigned_to": "Peter Tate",
-            "assigned_by": "Admin Jackson",
-            "description":"Intergrate the frontend to the API",
-            "color": "#64a0f5",
-            "status": "incomplete"
-        },
-        {
-            "id": 5,
-            "title": "Web App Deployment",
-            "start":"2024-06-18",
-            "end": "2024-06-21",
-            "assigned_to": "Peter Tate",
-            "assigned_by": "Admin Jackson",
-            "description":"Deploy the Whole application on Vercel",
-            "color": "#083778",
-            "status": "incomplete"
         }
     ]
 }

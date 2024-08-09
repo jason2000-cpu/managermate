@@ -8,12 +8,15 @@ import { users as usersData } from "../../data";
 import { useDispatch } from "react-redux";
 
 
-const baseUrl = "http://localhost:3001"
+const baseUrl = "http://localhost:3000/api/"
 
 // const baseUrl = "https://managermate-api.vercel.app"
 
 function useUserHook (){
     const [ users, setUsers ] = useState([]);
+
+    let original_users = [...users]
+
     useEffect(()=>{
         async function fetchUsers(){
             try {
@@ -25,7 +28,7 @@ function useUserHook (){
         }
 
         fetchUsers();
-    },[users])
+    },[])
 
     function getUser(id){
         const user = users.find((user) => user.id === id)

@@ -4,17 +4,18 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
-const baseUrl = "http://localhost:3001";
+const baseUrl = "http://localhost:3000/api/";
 // const baseUrl = "https://managermate-api.vercel.app"
 
 function useDepartmentHook(){
     const [ departments, setDepartments ] = useState([]);
     const [ requestStatus, setRequestStatus ] = useState()
-
+    
     useEffect(()=>{
         async function getAllDepartments(){
             try {
                 const response = await axios.get(`${baseUrl}/departments`)
+                console.log("RESPONSE FROM HOOK:::", response)
                 setDepartments(response.data)
             } catch (err){
                 console.log("An Error Occured While Fetching All Departments", err)

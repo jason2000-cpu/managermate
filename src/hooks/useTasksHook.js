@@ -5,7 +5,7 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
 
-const baseUrl = "http://localhost:3001"
+const baseUrl = "http://localhost:3000/api/"
 // const baseUrl = "https://managermate-api.vercel.app"
 
 function useTaskHook(){

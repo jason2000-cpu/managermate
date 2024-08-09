@@ -6,7 +6,9 @@ export async function GET() {
   await dbConnect();
 
   try {
-    const users = await User.find({});
+    const users = await User.find({})
+    // const users = await User.findById('66b3cc0ebce294cfd5057eea')
+    console.log("USER FOUND:::",users);
     return NextResponse.json(users, { status: 200 });
   } catch (error) {
     return NextResponse.json({ success: false }, { status: 400 });
