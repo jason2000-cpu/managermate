@@ -2,8 +2,8 @@
 
 import mongoose from 'mongoose';
 
-// const MONGODB_URI = process.env.MONGODB_URI;
-const MONGODB_URI = 'mongodb://127.0.0.1:27017/managermate'
+const MONGODB_URI = 'mongodb+srv://jasonmuturi2000:Jack2000@cluster0.9zd0dmd.mongodb.net/managermate?retryWrites=true&w=majority&appName=Cluster0';
+// const MONGODB_URI = 'mongodb://127.0.0.1:27017/managermate'
 
 if (!MONGODB_URI) {
   throw new Error(

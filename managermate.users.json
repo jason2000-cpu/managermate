@@ -1,0 +1,74 @@
+[{
+  "_id": {
+    "$oid": "66b3cc0ebce294cfd5057eea"
+  },
+  "FName": "Jackson",
+  "SName": "Mwangi",
+  "email": "jackson@gmail.com",
+  "phone": "+254797955092",
+  "userType": "admin",
+  "password": "12345"
+},
+{
+  "_id": {
+    "$oid": "66b3cd43bce294cfd5057eec"
+  },
+  "FName": "Alice",
+  "SName": "Thompson",
+  "email": "alicethompson@gmail.com",
+  "phone": "+254792945092",
+  "userType": "manager",
+  "password": "12345"
+},
+{
+  "_id": {
+    "$oid": "66b3cd6dbce294cfd5057eed"
+  },
+  "FName": "Peter",
+  "SName": "Tate",
+  "email": "petertate@gmail.com",
+  "phone": "+254792945126",
+  "userType": "user",
+  "password": "12345"
+},
+{
+  "_id": {
+    "$oid": "66b3cd9abce294cfd5057eee"
+  },
+  "FName": "Ann",
+  "SName": "Nyaboke",
+  "email": "annnyabs@gmail.com",
+  "phone": "+254792945321",
+  "assignedTask": false,
+  "department": "Finance",
+  "userType": "user",
+  "password": "12345"
+},
+{
+  "_id": {
+    "$oid": "66b772d4c986ece62a3cbe2d"
+  },
+  "FName": "Mongoose",
+  "SName": "Master",
+  "email": "mongoose@gmail.com",
+  "phone": 254797955092,
+  "userType": "user",
+  "assignedTask": false,
+  "department": "IT",
+  "password": "12345",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b77809c986ece62a3cbe34"
+  },
+  "FName": "Mongo",
+  "SName": "DB",
+  "email": "mongo@gmail.com",
+  "phone": 254797955092,
+  "userType": "user",
+  "assignedTask": false,
+  "department": "IT",
+  "password": "12345",
+  "__v": 0
+}]

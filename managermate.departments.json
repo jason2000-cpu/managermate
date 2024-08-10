@@ -1,0 +1,98 @@
+[{
+  "_id": {
+    "$oid": "66b6096cbce294cfd5057f00"
+  },
+  "date_created": {
+    "$date": "2024-03-02T00:00:00.000Z"
+  },
+  "contact_email": "info@hrmanagermate",
+  "department_code": "HR-120Z",
+  "department_name": "Human Resource",
+  "hod_name": "James Peter",
+  "employees": [
+    {
+      "$oid": "66b3cd6dbce294cfd5057eed"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66b6099fbce294cfd5057f01"
+  },
+  "date_created": {
+    "$date": "2024-01-02T00:00:00.000Z"
+  },
+  "contact_email": "info@finmanagermate",
+  "department_code": "FIN-120Z",
+  "department_name": "Finance",
+  "hod_name": "Eunice Thompson",
+  "employees": [
+    {
+      "$oid": "66b3cd6dbce294cfd5057eed"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66b609bbbce294cfd5057f02"
+  },
+  "date_created": {
+    "$date": "2023-12-02T00:00:00.000Z"
+  },
+  "contact_email": "info@itmanagermate",
+  "department_code": "IT-120Z",
+  "department_name": "IT",
+  "hod_name": "Jackson Mwangi",
+  "employees": [
+    {
+      "$oid": "66b3cc0ebce294cfd5057eea"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66b609e2bce294cfd5057f03"
+  },
+  "date_created": {
+    "$date": "2024-05-02T00:00:00.000Z"
+  },
+  "contact_email": "info@salesmanagermate",
+  "department_code": "SL-120Z",
+  "department_name": "Sales",
+  "hod_name": "James Peter",
+  "employees": [
+    "66b3cd6dbce294cfd5057eed"
+  ]
+},
+{
+  "_id": {
+    "$oid": "66b77f3b17e330cc1f2fda36"
+  },
+  "department_name": "Media",
+  "parent_department": "Human Resource",
+  "department_code": "9512",
+  "hod_name": "James Mwangi",
+  "contact_email": "media@managermate.com",
+  "description": "This department was created to help the organization create an online presence to its customers ",
+  "date_created": {
+    "$date": "2024-08-10T00:00:00.000Z"
+  },
+  "__v": 0,
+  "employees": []
+},
+{
+  "_id": {
+    "$oid": "66b79ed6d7d4f163f156812b"
+  },
+  "department_name": "Test",
+  "parent_department": "IT",
+  "department_code": "5519",
+  "hod_name": "Test M",
+  "contact_email": "test@managermate.com",
+  "description": "Giberish text",
+  "date_created": {
+    "$date": "2024-08-10T00:00:00.000Z"
+  },
+  "employees": [],
+  "__v": 0
+}]
