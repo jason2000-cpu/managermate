@@ -6,6 +6,10 @@ const DepartmentSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Provide Department Name']
     },
+    parent_department: {
+        type: String,
+        required: [true, 'Provide a Parent Department']
+    },
     department_code: {
         type: String,
         required: [true, 'Provide Department Code']
@@ -17,8 +21,14 @@ const DepartmentSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Provide Department Email']
     },
+    description: {
+        type: String,
+    },
     date_created: {
         type: Date
+    },
+    employees: {
+        type: Array
     }
 
 })

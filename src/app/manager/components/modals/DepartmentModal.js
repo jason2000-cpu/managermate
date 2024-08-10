@@ -12,11 +12,11 @@ function DepartmentModal({ isOpen, handleCloseModal }){
     const { createDepartment, departments } = useDepartmentHook();
 
     const [newDepartment, setNewDepartment] = useState({
-      name: '',
-      HOD: '',
+      department_name: '',
+      hod_name: '',
       description: '',
-      contactEmail: '',
-      parentDepartment: ''
+      contact_email: '',
+      parent_department: ''
     });
   
     const handleChange = (e) => {
@@ -61,9 +61,9 @@ function DepartmentModal({ isOpen, handleCloseModal }){
                                 <input
                                 className="border p-2 rounded w-full"
                                 type="test"
-                                name='name'
+                                name='department_name'
                                 placeholder="Department Name"
-                                value={newDepartment.name}
+                                value={newDepartment.department_name}
                                 onChange={handleChange}
                                 />
                             </div>
@@ -72,9 +72,9 @@ function DepartmentModal({ isOpen, handleCloseModal }){
                                 <input
                                 className="border p-2 rounded w-full"
                                 type="test"
-                                name='HOD'
+                                name='hod_name'
                                 placeholder="HOD"
-                                value={newDepartment.HOD}
+                                value={newDepartment.hod_name}
                                 onChange={handleChange}
                                 />
                             </div>
@@ -98,9 +98,9 @@ function DepartmentModal({ isOpen, handleCloseModal }){
                             <input
                                 className="border p-2 rounded w-full"
                                 type="email"
-                                name='contactEmail'
-                                placeholder="email"
-                                value={newDepartment.contactEmail}
+                                name='contact_email'
+                                placeholder="department email"
+                                value={newDepartment.contact_email}
                                 onChange={handleChange}
                             />
                         </div>
@@ -108,8 +108,8 @@ function DepartmentModal({ isOpen, handleCloseModal }){
                             <label htmlFor="invoices" className="block text-sm font-medium text-gray-700 mb-2">Parent Department</label>
                             <select
                                 id="invoices"
-                                value={newDepartment.parentDepartment}
-                                name='parentDepartment'
+                                value={newDepartment.parent_department}
+                                name='parent_department'
                                 onChange={handleChange}
                                 className=" border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-indigo-500 focus:border-indigo-500 w-[16rem]"
                             >

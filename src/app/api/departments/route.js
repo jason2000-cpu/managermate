@@ -15,9 +15,10 @@ export async function GET() {
 
 export async function POST(req, res) {
     await dbConnect();
-
+    const body = await req.json()
+    console.log("DEPARTMENT BODY:::", body)
     try {
-        const department = await Departments.create(req.body);
+        const department = await Departments.create(body);
         // res.status(201).json(department)
         return new Response(JSON.stringify(department), {
             status: 200,

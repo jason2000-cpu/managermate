@@ -44,11 +44,9 @@ function useDepartmentHook(){
     async function createDepartment(departmentData){
         let newDepartment = {
             ...departmentData,
-            id: uuidv4(),
             date_created: getDate(),
-            emmployees: [],
-            code: generateRandomCode()
-
+            employees: [],
+            department_code: generateRandomCode()
         }
 
         setDepartments([...departments, newDepartment])
