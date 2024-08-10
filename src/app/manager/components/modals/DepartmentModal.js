@@ -115,7 +115,7 @@ function DepartmentModal({ isOpen, handleCloseModal }){
                             >
                                 <option value="creditCard">Select Department</option>
                                 {departments.map((department, key) => (
-                                    <option key={key} value={department.name}>{department.name}</option>
+                                    <option key={key} value={department.department_name}>{department.department_name}</option>
                                 ))}
                             </select>
                         </div>

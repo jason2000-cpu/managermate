@@ -28,7 +28,8 @@ const DepartmentSchema = new mongoose.Schema({
         type: Date
     },
     employees: {
-        type: Array
+        type: [String],
+        default: []
     }
 
 })
