@@ -10,7 +10,7 @@ const baseUrl = "http://localhost:3000/api/";
 function useDepartmentHook(){
     const [ departments, setDepartments ] = useState([]);
     const [ requestStatus, setRequestStatus ] = useState()
-    
+
     useEffect(()=>{
         async function getAllDepartments(){
             try {
@@ -22,7 +22,7 @@ function useDepartmentHook(){
             }
         }
         getAllDepartments();
-    }, [departments])
+    }, [])
 
 
     function generateRandomCode() {

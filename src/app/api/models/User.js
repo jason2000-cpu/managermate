@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
-  Fname: {
+  FName: {
     type: String,
     required: [true, 'Please provide first name'],
   },
@@ -21,6 +21,13 @@ const UserSchema = new mongoose.Schema({
   },
   userType: {
     type: String,
+  },
+  assignedTask: {
+    type: Boolean,
+  },
+  department: {
+    type: String,
+    required: [true, 'Please provide a department']
   },
   password: {
     type: String,

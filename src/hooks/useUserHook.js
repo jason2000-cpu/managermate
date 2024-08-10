@@ -15,7 +15,7 @@ const baseUrl = "http://localhost:3000/api/"
 function useUserHook (){
     const [ users, setUsers ] = useState([]);
 
-    let original_users = [...users]
+    // let original_users = [...users]
 
     useEffect(()=>{
         async function fetchUsers(){
@@ -59,7 +59,6 @@ function useUserHook (){
     async function register(formData){
         const newUser = {
             ...formData,
-            id: uuidv4(),
             userType: "user",
             assignedTask: false ,
             department : "IT",
@@ -67,6 +66,7 @@ function useUserHook (){
         }
         let res = {};
 
+        console.log("A USER REGISTRATION IS UNDERWAY", newUser)
         try {
             setUsers({...users, newUser});
             const response = await axios.post(`${baseUrl}/users`, newUser)

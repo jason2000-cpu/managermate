@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from "../models/mongodb";
 import User from "../models/User";
 
@@ -8,44 +8,46 @@ export async function GET() {
   try {
     const users = await User.find({})
     // const users = await User.findById('66b3cc0ebce294cfd5057eea')
-    console.log("USER FOUND:::",users);
     return NextResponse.json(users, { status: 200 });
   } catch (error) {
     return NextResponse.json({ success: false }, { status: 400 });
   }
 }
 
-// export async function POST(req, res) {
-//   await dbConnect();
+export async function POST(req, res) {
+  await dbConnect();
+  const body = await req.json()
+  console.log("REQUEST BODY::::",body)
+  try {
+    const user = await User.create({...body});
+    return NextResponse.json(user, {status: 201});
+  } catch (error) {
+    console.log("Error Creating User::", error.message )
+    return NextResponse.json({ success: false, message: error.message}, {status: 400})
+  }
+}
 
-//   try {
-//     const user = await User.create(req.body);
-//     res.status(201).json(user);
-//   } catch (error) {
-//     res.status(400).json({ success: false });
-//   }
-// }
+export async function PUT(req, res) {
+  await dbConnect();
 
-// export async function PUT(req, res) {
-//   await dbConnect();
+  try {
+    const { id, ...updateData } = req.body;
+    const user = await User.findByIdAndUpdate(id, updateData, { new: true });
 
-//   try {
-//     const { id, ...updateData } = req.body;
-//     const user = await User.findByIdAndUpdate(id, updateData, { new: true });
-//     res.status(200).json(user);
-//   } catch (error) {
-//     res.status(400).json({ success: false });
-//   }
-// }
+    return NextResponse.json(user, {status: 200});
+  } catch (error) {
+    return NextResponse.json({success: false}, {status: 400})
+  }
+}
 
-// export async function DELETE(req, res) {
-//   await dbConnect();
+export async function DELETE(req, res) {
+  await dbConnect();
 
-//   try {
-//     const { id } = req.body;
-//     await User.findByIdAndDelete(id);
-//     res.status(200).json({ success: true });
-//   } catch (error) {
-//     res.status(400).json({ success: false });
-//   }
-// }
+  try {
+    const { id } = req.body;
+    await User.findByIdAndDelete(id);
+   return NextResponse.json({}, {status: 200})
+  } catch (error) {
+    return NextResponse.json({success: false}, {status: 400})
+  }
+}

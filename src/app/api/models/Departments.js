@@ -23,4 +23,4 @@ const DepartmentSchema = new mongoose.Schema({
 
 })
 
-export default mongoose.models.User || mongoose.model('Departments', DepartmentSchema)
+export default mongoose.models.Departments || mongoose.model('Departments', DepartmentSchema)

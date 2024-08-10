@@ -18,9 +18,17 @@ export async function POST(req, res) {
 
     try {
         const department = await Departments.create(req.body);
-        res.status(201).json(department)
+        // res.status(201).json(department)
+        return new Response(JSON.stringify(department), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json'}
+        })
     } catch (error) {
-        res.status(400).json({success: false});
+        // res.status(400).json({success: false});
+        return new Response(JSON.stringify({ message: 'Internal Server Error', error: error.message }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' },
+        });
     }
 }
 

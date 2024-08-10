@@ -37,9 +37,12 @@ function DepartmentsTable({ data }){
                   <td className="py-2 px-4 border-b dark:border-b-gray-600">{item.code}</td>
                   <td className="py-2 px-4 border-b dark:border-b-gray-600">{item.contactEmail}</td>
                   <td className="py-2 px-4 border-b dark:border-b-gray-600">{item.HOD}</td>
-                  <td className="py-2 px-4 border-b dark:border-b-gray-600">{
+                  <td className="py-2 px-4 border-b dark:border-b-gray-600">
+                  {/* {
                     item.employees.length <= 0 ? "No Employees" : `${item.employees.length} Employees`
-                  }</td>
+                  } */}
+                  No Employees
+                  </td>
                   <td className="py-2 px-4 border-b dark:border-b-gray-600">{item.date_created}</td>
                   <td className="py-2 px-4 border-b dark:border-b-gray-600">
                     <button 
