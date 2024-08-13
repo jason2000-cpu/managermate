@@ -26,14 +26,14 @@ function useTaskHook(){
         }
         
         getAllTasks();
-    }, [tasks])
+    }, [])
 
 
     async function getTasks(userId){
         let res = {}
         setIsLoading(true)
         try {
-            const response = await axios.get(`${baseUrl}/tasks/${userId}`)
+            const response = await axios.get(`${baseUrl}/tasks`, userId)
             res = {status: 'Success', message: response.data}
             setIsLoading(false);
         } catch (err){
@@ -55,7 +55,7 @@ function useTaskHook(){
 
         let res = {}
          try {
-            const response = await axios.patch(`${baseUrl}/tasks/${id}`, updatedTask);
+            const response = await axios.put(`${baseUrl}/tasks?id=${id}`, updatedTask);
             if (response.status === 200){
                 res = {status: "Success", message: updatedTask }
             }
@@ -71,7 +71,6 @@ function useTaskHook(){
         let res = {};
         const newTask = {
             ...taskData,
-            id: uuidv4(),
             assigned_to: null,
             assigned_by: null,
             color: "#f56954",

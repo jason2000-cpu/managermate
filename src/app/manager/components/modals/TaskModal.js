@@ -9,10 +9,10 @@ const CreateTaskModal = ({ isOpen, handleCloseModal, toast }) => {
 
   const { createTask } = useTaskHook();
   const [newTask, setNewTask] = useState({
-    title: '',
+    task_title: '',
     description: '',
-    start: '',
-    end: ''
+    start_date: '',
+    end_date: ''
   });
 
   const handleChange = (e) => {
@@ -54,13 +54,13 @@ const CreateTaskModal = ({ isOpen, handleCloseModal, toast }) => {
             <div className="mb-4 space-y-8">
                 <div className='w-full space-y-4'>
                         <div className='w-full'>
-                            <label htmlFor='title'  className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                            <label htmlFor='task_title'  className="block text-sm font-medium text-gray-700 mb-1">Title</label>
                             <input
-                              name='title'
+                              name='task_title'
                               className="border p-2 rounded w-full"
                               type="text"
                               placeholder="Title"
-                              value={newTask.title}
+                              value={newTask.task_title}
                               onChange={handleChange}
                             />
                         </div>
@@ -78,24 +78,24 @@ const CreateTaskModal = ({ isOpen, handleCloseModal, toast }) => {
                 </div>
                 <div className='flex mt-5 justify-between'>
                     <div>
-                        <label htmlFor='start'>Start Date</label>
+                        <label htmlFor='start_date'>Start Date</label>
                         <input
                             className="border p-2 rounded w-full"
                             type="date"
-                            name="start"
+                            name="start_date"
                             placeholder="Start Date"
-                            value={newTask.start}
+                            value={newTask.start_date}
                             onChange={handleChange}
                         />
                     </div>
                     <div>
-                        <label htmlFor='end'>Due Date</label>
+                        <label htmlFor='end_date'>Due Date</label>
                         <input
                             className="border p-2 rounded w-full "
                             type="date"
-                            name='end'
+                            name='end_date'
                             placeholder="Due Date"
-                            value={newTask.end}
+                            value={newTask.end_date}
                             onChange={handleChange}
                         />
                     </div>

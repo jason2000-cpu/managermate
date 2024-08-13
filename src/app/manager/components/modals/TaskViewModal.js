@@ -18,10 +18,10 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
     // const user = JSON.parse(localStorage.getItem("activeUser"));
 
     const [taskInView, setTaskInView] = useState({
-        title: task.title,
+        title: task.task_title,
         description: task.description,
-        start: task.start,
-        end: task.end,
+        start: task.start_date,
+        end: task.end_date,
         assigned_to: task.assigned_to,
         // assigned_by: `${user.FName} ${user.SName}`
         assigned_by: "Jackson"
@@ -38,7 +38,7 @@ function TaskViewModal({ isTaskViewModalOpen, handleCloseModal, task }){
       const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(taskInView);
-        const res = await updateTask(task.id, taskInView);
+        const res = await updateTask(task._id, taskInView);
         console.log("UPDATING TASK RESPONSE:::", res);
         if (res.status === "Success"){
           toast.success("Task Updated Successfully!")
